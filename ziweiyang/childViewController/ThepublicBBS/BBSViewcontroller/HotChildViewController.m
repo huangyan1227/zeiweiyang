@@ -82,6 +82,8 @@
         NSArray * modearry = [BBSModel addBBChildSomeModel: responsObj imageString:mySelf.model.nameimageString tieimage:@"forum_content" model:mySelf.model];
         
         if (modearry.count==0) {
+           
+            mySelf.page--;
             return ;
         }
     

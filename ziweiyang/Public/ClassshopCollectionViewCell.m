@@ -190,7 +190,7 @@
     
     _urlImage = urlImage;
     
-     [_imageView sd_setImageWithURL:[NSURL URLWithString:urlImage]];
+     [_imageView sd_setImageWithURL:[NSURL URLWithString:urlImage] placeholderImage:[UIImage imageNamed:@"bookShading2"]];
     
    
     //_nameImagView.image = [UIImage imageNamed:@"bookshelves"];

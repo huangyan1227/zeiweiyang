@@ -58,6 +58,8 @@
         if (modearry.count==0) {
             
             // NSLog(@"结术");
+             mySelf.page--;
+            
             return ;
             
             

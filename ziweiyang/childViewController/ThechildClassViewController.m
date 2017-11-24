@@ -122,6 +122,7 @@
         
         if (modearry.count==0) {
             
+             mySelf.page--;
             // NSLog(@"结术");
             return ;
             

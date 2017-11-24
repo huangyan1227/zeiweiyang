@@ -96,6 +96,9 @@
         NSArray * modearry = [BBSModel addBBSomeModel:responsObj];
         
         if (modearry.count==0) {
+            
+            mySelf.page--;
+            
             return ;
         }
         
