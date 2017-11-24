@@ -1,0 +1,112 @@
+body {
+	background-image: url('../img/bgPattern.jpg'); 
+	background-repeat: repeat;
+	 -webkit-text-size-adjust: 100%;
+}
+html{
+	-webkit-user-select: none;
+	font-size:16px;
+}
+div,span,p,table,body{
+	font-size:16px;
+}
+.about_list{
+	clear:both;
+	width:100%;
+}
+.about_list .item{
+	clear:both;
+	width:100%;
+	padding-bottom:30px;
+}
+
+.about_list .item .photo{
+	float:left;
+	width:240px;
+	/*width:100%;*/
+	position:relative;
+}
+.about_list .item .content{
+	float:right;
+	/*width:530px;*/
+	width:'100%';
+	/*margin-right:20px;*/
+	text-align:justify;
+}
+.about_list .item .photo .icon_zoom{
+	position:absolute;
+	left:-11px;
+	top:-11px;
+	background-image:url(images/button/btn_zoom.png?v=2?v=2?v=2?v=222222);
+	background-repeat:no-repeat;
+	width:22px;
+	height:22px;
+}
+
+.about_list .item .photo .caption{
+	clear:both;
+	/*width:100%;*/
+	padding-top:10px;
+	font-size:12px;
+	line-height:200%;
+	width:230px;
+}
+.about_list .item2 .photo{
+	float:right;
+	width:'40%';
+	/*margin-right:20px;*/
+}
+.about_list .item2 .content{
+	float:left;
+	width:'60%';
+	text-align:justify;
+}
+
+h2{
+	clear:both;
+	font-size:18px;
+	padding-bottom:20px;
+	color:#6c207f;
+	font-weight:bold;
+}
+
+
+.book_list{
+	clear:both;
+	width:100%;
+	padding-top:30px;
+}
+.book_list .item{
+	clear:both;
+	width:100%;
+	padding-bottom:30px;
+}
+
+.book_list .item .photo{
+	float:left;
+	/*width:140px;*/
+	width:'40%';
+	position:relative;
+}
+.book_list .item .content{
+	float:right;
+	/*width:615px;*/
+	width:'60%';
+	margin-right:20px;
+	text-align:justify;
+}
+
+
+
+.book_list .item2 .photo{
+	float:right;
+	/*width:140px;*/
+	width:'40%';
+	margin-right:20px;
+}
+.book_list .item2 .content{
+	float:left;
+	/*width:615px;*/
+	width:'60%';
+	text-align:justify;
+}

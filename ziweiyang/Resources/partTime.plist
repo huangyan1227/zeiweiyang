@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>(GMT+08:00)香港,澳门</string>
+	<string>(GMT+08:00)中国</string>
+	<string>(GMT+08:00)臺北</string>
+	<string>(GMT-11:00)中途島</string>
+	<string>(GMT-11:00)薩摩亞</string>
+	<string>(GMT-10:00)夏威夷</string>
+	<string>(GMT-09:00)阿拉斯加</string>
+	<string>(GMT-08:00)美國和加拿大</string>
+	<string>(GMT-08:00)華納</string>
+	<string>(GMT-07:00)亞</string>
+	<string>(GMT-07:00)山地時間</string>
+	<string>(GMT-07:00)奇華華</string>
+</array>
+</plist>
