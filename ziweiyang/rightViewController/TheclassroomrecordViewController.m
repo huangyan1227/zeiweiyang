@@ -4,11 +4,12 @@
 //
 //  Created by bidiao on 2017/11/15.
 //  Copyright © 2017年 bidiao. All rights reserved.
-//
+//教室记录
 
 #import "TheclassroomrecordViewController.h"
 #import "MPublicTableViewCell.h"
 #import "RightModel.h"
+#import "ThecClassroomChildViewController.h"
 @interface TheclassroomrecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * tableView;
 @end
@@ -85,7 +86,11 @@
     
     return 160;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.navigationController pushViewController:[ThecClassroomChildViewController new] animated:YES];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   basci.plist
-   ziweiyang
-
-   Created by bidiao on 2017/11/27.
-   Copyright (c) 2017年 bidiao. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<array>
+	<string>剩余购买点数</string>
+	<string>会员到期日</string>
+	<string>登入电邮</string>
+	<string>出生地时区</string>
+	<string>年龄</string>
+	<string>已购买书刊数目</string>
+	<string>已购买教室数目</string>
+	<string>已购买实体数目</string>
+	<string>送货地址</string>
+</array>
 </plist>

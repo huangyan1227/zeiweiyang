@@ -4,7 +4,7 @@
 //
 //  Created by bidiao on 2017/11/15.
 //  Copyright © 2017年 bidiao. All rights reserved.
-//
+//  实体记录
 
 #import "TheentityrecordViewController.h"
 #import "MPublicTableViewCell.h"

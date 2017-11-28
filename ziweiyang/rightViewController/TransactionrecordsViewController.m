@@ -4,7 +4,7 @@
 //
 //  Created by bidiao on 2017/11/15.
 //  Copyright © 2017年 bidiao. All rights reserved.
-//
+//交易记录
 
 #import "TransactionrecordsViewController.h"
 #import "TransactionTableViewCell.h"

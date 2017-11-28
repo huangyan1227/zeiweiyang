@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140E51251FCCF98A00711F82 /* ThecClassroomChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */; };
+		140E51281FCD031600711F82 /* RecoChildeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51271FCD031600711F82 /* RecoChildeViewController.m */; };
 		144AE8461FB9381A004C884C /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8431FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.m */; };
 		144AE8471FB9381C004C884C /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8451FB93800004C884C /* UIView+SDAutoLayout.m */; };
 		144AE84A1FB93859004C884C /* HotChiledTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8491FB93859004C884C /* HotChiledTableViewCell.m */; };
@@ -37,6 +39,11 @@
 		144AE9471FBD6DC3004C884C /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE9331FBD6D7F004C884C /* BRDatePickerView.m */; };
 		144AE9491FBD9231004C884C /* datetime.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144AE9481FBD9231004C884C /* datetime.plist */; };
 		144AE94C1FBECEA7004C884C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE94A1FBECEA7004C884C /* MBProgressHUD.m */; };
+		145A97C71FCBE450006862B4 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145A97C61FCBE450006862B4 /* BasicTableViewCell.m */; };
+		145A97C91FCBE6BD006862B4 /* basci.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145A97C81FCBE6BD006862B4 /* basci.plist */; };
+		145A97CB1FCBED2B006862B4 /* bascione.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145A97CA1FCBED2B006862B4 /* bascione.plist */; };
+		145A97CD1FCBEEE1006862B4 /* bascitwo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145A97CC1FCBEEE1006862B4 /* bascitwo.plist */; };
+		145A97D31FCC10A2006862B4 /* BasicDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145A97D21FCC10A2006862B4 /* BasicDataViewController.m */; };
 		148497A51FB03B7B00812B51 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484979C1FB03B7500812B51 /* MJRefreshConst.m */; };
 		148497A61FB03B7E00812B51 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484979E1FB03B7500812B51 /* NSBundle+MJRefresh.m */; };
 		148497A71FB03B8300812B51 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 148497A01FB03B7500812B51 /* UIScrollView+MJExtension.m */; };
@@ -224,6 +231,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140E51231FCCF98A00711F82 /* ThecClassroomChildViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThecClassroomChildViewController.h; sourceTree = "<group>"; };
+		140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThecClassroomChildViewController.m; sourceTree = "<group>"; };
+		140E51261FCD031600711F82 /* RecoChildeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecoChildeViewController.h; sourceTree = "<group>"; };
+		140E51271FCD031600711F82 /* RecoChildeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecoChildeViewController.m; sourceTree = "<group>"; };
 		144AE8411FB93800004C884C /* SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		144AE8421FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
 		144AE8431FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
@@ -287,6 +298,13 @@
 		144AE9481FBD9231004C884C /* datetime.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = datetime.plist; sourceTree = "<group>"; };
 		144AE94A1FBECEA7004C884C /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		144AE94B1FBECEA7004C884C /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		145A97C51FCBE450006862B4 /* BasicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		145A97C61FCBE450006862B4 /* BasicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
+		145A97C81FCBE6BD006862B4 /* basci.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = basci.plist; sourceTree = "<group>"; };
+		145A97CA1FCBED2B006862B4 /* bascione.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = bascione.plist; sourceTree = "<group>"; };
+		145A97CC1FCBEEE1006862B4 /* bascitwo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = bascitwo.plist; sourceTree = "<group>"; };
+		145A97D11FCC10A2006862B4 /* BasicDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicDataViewController.h; sourceTree = "<group>"; };
+		145A97D21FCC10A2006862B4 /* BasicDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicDataViewController.m; sourceTree = "<group>"; };
 		148497781FB03B7500812B51 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		148497791FB03B7500812B51 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		1484977A1FB03B7500812B51 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -781,6 +799,12 @@
 		144AE94D1FBEE915004C884C /* rightChildViewController */ = {
 			isa = PBXGroup;
 			children = (
+				145A97D11FCC10A2006862B4 /* BasicDataViewController.h */,
+				145A97D21FCC10A2006862B4 /* BasicDataViewController.m */,
+				140E51231FCCF98A00711F82 /* ThecClassroomChildViewController.h */,
+				140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */,
+				140E51261FCD031600711F82 /* RecoChildeViewController.h */,
+				140E51271FCD031600711F82 /* RecoChildeViewController.m */,
 			);
 			path = rightChildViewController;
 			sourceTree = "<group>";
@@ -792,6 +816,8 @@
 				14BCD0CD1FC267BE0033F818 /* TransactionTableViewCell.m */,
 				14BCD0D21FC27BB10033F818 /* MPublicTableViewCell.h */,
 				14BCD0D31FC27BB10033F818 /* MPublicTableViewCell.m */,
+				145A97C51FCBE450006862B4 /* BasicTableViewCell.h */,
+				145A97C61FCBE450006862B4 /* BasicTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -906,6 +932,9 @@
 				1485C4801F9D9EF500BAEF70 /* partTime.plist */,
 				1485C5C31FA2D2FA00BAEF70 /* image.plist */,
 				1485C4F01F9ED76600BAEF70 /* map_ziweiyang.jpg */,
+				145A97C81FCBE6BD006862B4 /* basci.plist */,
+				145A97CA1FCBED2B006862B4 /* bascione.plist */,
+				145A97CC1FCBEEE1006862B4 /* bascitwo.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1302,7 +1331,6 @@
 				1485C5571FA1D76700BAEF70 /* libraries */,
 				1485C4BF1F9DECA300BAEF70 /* html */,
 				1485C47F1F9D9EC800BAEF70 /* Resources */,
-				14F0545A1F98495E00C02B12 /* childViewController */,
 				14F054221F95D26F00C02B12 /* LeftViewController */,
 				144AE8A91FBACB8D004C884C /* rightViewController */,
 				14F054011F95A3E600C02B12 /* Category */,
@@ -1410,6 +1438,7 @@
 		14F054221F95D26F00C02B12 /* LeftViewController */ = {
 			isa = PBXGroup;
 			children = (
+				14F0545A1F98495E00C02B12 /* childViewController */,
 				14F054231F95D2A800C02B12 /* ThehomePageViewController.h */,
 				14F054241F95D2A800C02B12 /* ThehomePageViewController.m */,
 				14F054261F95D2F200C02B12 /* DailyfinancesViewController.h */,
@@ -1594,6 +1623,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				145A97C91FCBE6BD006862B4 /* basci.plist in Resources */,
+				145A97CD1FCBEEE1006862B4 /* bascitwo.plist in Resources */,
 				1485C4DA1F9DECB000BAEF70 /* company.html in Resources */,
 				1485C4EE1F9DEF8200BAEF70 /* rules.html in Resources */,
 				1485C4DE1F9DECCD00BAEF70 /* company.png in Resources */,
@@ -1621,6 +1652,7 @@
 				1485C4E01F9DEDD800BAEF70 /* book2.png in Resources */,
 				1485C4FB1F9EF2C500BAEF70 /* photo5.png in Resources */,
 				1485C4DF1F9DEDCE00BAEF70 /* qimen.html in Resources */,
+				145A97CB1FCBED2B006862B4 /* bascione.plist in Resources */,
 				1485C4E41F9DEDE800BAEF70 /* qimen1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1650,6 +1682,7 @@
 				148497A71FB03B8300812B51 /* UIScrollView+MJExtension.m in Sources */,
 				14BCD1261FC400E80033F818 /* XinTieViewController.m in Sources */,
 				1485C5B61FA2C86D00BAEF70 /* UIImageView+HighlightedWebCache.m in Sources */,
+				145A97C71FCBE450006862B4 /* BasicTableViewCell.m in Sources */,
 				1485C5B31FA2C86400BAEF70 /* UIImage+GIF.m in Sources */,
 				148497AD1FB03B9B00812B51 /* MJRefreshBackGifFooter.m in Sources */,
 				1485C47C1F9D9C9C00BAEF70 /* LXKColorChoice.m in Sources */,
@@ -1658,6 +1691,7 @@
 				144AE94C1FBECEA7004C884C /* MBProgressHUD.m in Sources */,
 				14F054341F95D38100C02B12 /* SpecialViewController.m in Sources */,
 				148497A91FB03B8900812B51 /* UIView+MJExtension.m in Sources */,
+				145A97D31FCC10A2006862B4 /* BasicDataViewController.m in Sources */,
 				14BCD1DC1FC7C2760033F818 /* IQPreviousNextView.m in Sources */,
 				144AE8BE1FBBE381004C884C /* BBSrecordViewController.m in Sources */,
 				149CD2D81FA8179900C5C457 /* CoursecontentViewController.m in Sources */,
@@ -1721,6 +1755,7 @@
 				14F054251F95D2A800C02B12 /* ThehomePageViewController.m in Sources */,
 				1485C56A1FA1D79100BAEF70 /* AFURLResponseSerialization.m in Sources */,
 				144AE8641FBA9314004C884C /* WKWebViewMode.m in Sources */,
+				140E51251FCCF98A00711F82 /* ThecClassroomChildViewController.m in Sources */,
 				1485C5B71FA2C87000BAEF70 /* UIImageView+WebCache.m in Sources */,
 				1485C5501FA07EEB00BAEF70 /* ClassshopCollectionViewCell.m in Sources */,
 				14BCD0D71FC2B11D0033F818 /* BBCReplyViewController.m in Sources */,
@@ -1779,6 +1814,7 @@
 				144AE9461FBD6DBE004C884C /* BRStringPickerView.m in Sources */,
 				14BCD1DD1FC7C2790033F818 /* IQTitleBarButtonItem.m in Sources */,
 				144AE9451FBD6DB8004C884C /* YYClassInfo.m in Sources */,
+				140E51281FCD031600711F82 /* RecoChildeViewController.m in Sources */,
 				1485C5661FA1D78200BAEF70 /* AFHTTPSessionManager.m in Sources */,
 				14F0542B1F95D31900C02B12 /* ThelatestnewsViewController.m in Sources */,
 				14BCD0DB1FC2C6F50033F818 /* Question.m in Sources */,
@@ -1916,7 +1952,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1966,7 +2002,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1978,9 +2014,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UCZ2KR8692;
+				DEVELOPMENT_TEAM = VXNTVH5426;
 				INFOPLIST_FILE = ziweiyang/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = toppine.bidiao.com.ziweiyang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1993,9 +2029,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UCZ2KR8692;
+				DEVELOPMENT_TEAM = VXNTVH5426;
 				INFOPLIST_FILE = ziweiyang/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = toppine.bidiao.com.ziweiyang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
