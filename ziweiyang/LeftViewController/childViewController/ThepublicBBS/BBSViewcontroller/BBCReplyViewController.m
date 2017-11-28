@@ -134,7 +134,7 @@
         
         CGSize size = [tagcontitle sizeThatFits:maxsize];
         
-        tagcontitle.frame = CGRectMake(2, CGRectGetMaxY(tagtitle.frame), size.width+5, size.height);
+        tagcontitle.frame = CGRectMake(2, CGRectGetMaxY(tagtitle.frame), self.view.width*4/5, size.height);
         
         tagcontitle.centerX = scrollView.centerX;
         

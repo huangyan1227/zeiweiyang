@@ -256,6 +256,8 @@
     
     BBSModel * model = self.mutableArrat[indexPath.row];
     
+    child.model = model;
+    
     child.formid = model.conid;
     
      [self.navigationController pushViewController:child animated:YES];
