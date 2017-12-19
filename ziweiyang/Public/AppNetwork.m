@@ -26,4 +26,15 @@ NSString* const AppNetWork_Post = @"https://www.ziweiyang.com/";
 NSString*  AppInfo_PRODUCTION_SERVER_DOMAIN = @"makeitmobile.com.hk";       // PRODUCTION DOMAIN
 
 NSString* const AppInfo_USER_COOKIE =@"http://192.168.2.12/TreeMap/index.php";
+
+const NSString *Appapi_get_coursebook_detail =@"api_get_coursebook_detail.php";
+ const NSString * AppToken_USER_COOKIE = nil;
+ const NSString * AppUserName_USER = nil;
+ const NSString * AppPassword_PASSWORD = nil;
+
+  BOOL  AppLog_State =false;
+
+const NSInteger RecordPerpage = 8;
+
+
 @end

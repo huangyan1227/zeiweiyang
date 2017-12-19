@@ -12,7 +12,15 @@
 #import "BRDatePickerView.h"
 #import "BRStringPickerView.h"
 @interface BasicDataViewController ()<UITextFieldDelegate>
-
+@property(nonatomic,strong) NSString * suremae;
+@property(nonatomic,strong) NSString * mobile_no;
+@property(nonatomic,strong) NSString * gender;
+@property(nonatomic,strong) NSString * birth;
+@property(nonatomic,strong) NSString * birth_timeslot;
+@property(nonatomic,strong) NSString * calendar_timezone;
+@property(nonatomic,strong) NSString * address;
+@property(nonatomic,strong) NSString * deliver_adress;
+@property(nonatomic,strong) NSString * referral;
 @end
 
 @implementation BasicDataViewController
@@ -59,8 +67,17 @@
     
     [scrollView addSubview:labetext];
     
-    NSArray * array = @[@"哈饿",@"388938833",@" sakjiew",@""];
+    NSArray * array = @[self.array[1],self.array[3],self.array[4],self.array[15]];
     NSArray * placeArray = @[@" 姓名",@" 电话号码",@" 通讯地址",@" 送货地址"];
+    
+    self.suremae = self.array[1];
+    
+    self.mobile_no = self.array[3];
+    
+    self.address = self.array[4];
+    
+    self.deliver_adress = self.array[15];
+    
     for (int i=0; i<array.count; i++) {
         
         [self texttitle:array[i] textframe:CGRectMake(10, (CGRectGetMaxY(labetext.frame)+10)+(50*i), (scrollView.width-30), 40) inttag:i scrolleView:scrollView placeholder:placeArray[i]];
@@ -69,7 +86,14 @@
     
     UIButton * sexbutton = [[UIButton alloc]init ];
     
-    [self button:sexbutton frame:CGRectMake(10, (CGRectGetMaxY(labetext.frame)+10)+200, (scrollView.width-30), 40) title:@"男" intage:16 scrolleview:scrollView];
+    [self button:sexbutton frame:CGRectMake(10, (CGRectGetMaxY(labetext.frame)+10)+200, (scrollView.width-30), 40) title:self.array[2] intage:16 scrolleview:scrollView];
+    
+    if ([self.array[2] isEqualToString:@"男"]) {
+        self.gender = @"1";
+    }else{
+        
+        self.gender = @"2";
+    }
     //    [sexbutton setTitle:@"性别" forState:UIControlStateNormal];
     //
     //    [sexbutton addTarget:self action:@selector(sexButton) forControlEvents:UIControlEventTouchUpInside];
@@ -87,7 +111,9 @@
     //    sexbutton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     //    [scrollView addSubview:sexbutton];
     
-    [self texttitle:@"" textframe:CGRectMake(10, CGRectGetMaxY(sexbutton.frame)+10, scrollView.width-30, 40) inttag:8 scrolleView:scrollView placeholder:@"介绍人电邮地址"];
+    [self texttitle:self.array[6] textframe:CGRectMake(10, CGRectGetMaxY(sexbutton.frame)+10, scrollView.width-30, 40) inttag:8 scrolleView:scrollView placeholder:@"介绍人电邮地址"];
+    
+    self.referral = self.array[6];
     
     UIImageView * imagew = [[UIImageView alloc]init];
     
@@ -101,7 +127,10 @@
     
     textlabel.frame = CGRectMake(CGRectGetMaxX(imagew.frame)+10, imagew.y-5, scrollView.width/3, 30);
     
-    textlabel.text = @"出生地时区:中国";
+    textlabel.text = [NSString  stringWithFormat:@"出生地时区:%@",self.array[10]];
+   
+    self.calendar_timezone = self.array[10];
+    
     
     textlabel.textColor = fontColor(91, 57, 0);
     
@@ -109,11 +138,13 @@
     
     UIButton * borndate = [[UIButton alloc]init];
     
-    [self button:borndate frame:CGRectMake(10, CGRectGetMaxY(textlabel.frame)+10, (scrollView.width-30), 40) title:@"选择出生日期" intage:17 scrolleview:scrollView];
+    [self button:borndate frame:CGRectMake(10, CGRectGetMaxY(textlabel.frame)+10, (scrollView.width-30), 40) title:self.array[16] intage:17 scrolleview:scrollView];
+    
+    self.birth = self.array[16];
     
     UIButton * borntime = [[UIButton alloc]init];
     
-    [self button:borntime frame:CGRectMake(10, CGRectGetMaxY(borndate.frame)+10, (scrollView.width-30), 40) title:@"出生时间" intage:18 scrolleview:scrollView];
+    [self button:borntime frame:CGRectMake(10, CGRectGetMaxY(borndate.frame)+10, (scrollView.width-30), 40) title:self.array[17] intage:18 scrolleview:scrollView];
     
     //UIButton * borntimezone = [[UIButton alloc]init];
     
@@ -223,9 +254,61 @@
     
     
 }
+#warning 上传；
 -(void)zongbutton{
+  
+    MBProgressHUD * hud  = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hud.label.text = @"正在上传....";
+    
+  
+    NSString * string = [NSString stringWithFormat:@"%@api_member_update.php?username=%@&surname_en=%@&mobile_no=%@&gender=%@&birth=%@&birth_timeslot=%@&calendar_timezone=%@&address=%@？&delivery_address=%@&referral=%@&token=%@&active=",AppNetWork_Post, AppUserName_USER,self.suremae,self.mobile_no,self.gender,self.birth,self.birth_timeslot,self.calendar_timezone,self.address,self.deliver_adress,self.referral,AppToken_USER_COOKIE];
+    DefinmySelf;
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+        ///NSLog(@"%@",responsObj);
+        BOOL isSucess = responsObj[@"success"];
+        
+        [hud hideAnimated:YES];
+        
+        if (isSucess) {
+            
+            [mySelf enterAsiin:@"提醒" messag:@"修改成功"];
+            
+            //NSLog(@"成功");
+        }else{
+            
+            NSString *  string = responsObj[@"err_msg"];
+             [mySelf enterAsiin:@"提醒" messag: [NSString stringWithFormat:@"修改失败%@",string]];
+        }
+       
+        
+    }];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     NSLog(@"总");
+}
+-(void)enterAsiin:(NSString*)title messag:(NSString*)messg{
+    
+    UIAlertController * aler = [UIAlertController alertControllerWithTitle:title message:messg preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:aler animated:YES completion:nil];
+    
+    UIAlertAction * acation = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+    
+    [aler addAction:acation];
+    
 }
 -(void)button:(UIButton*)sexbutton frame:(CGRect)rect title:(NSString*)title intage:(int)tage scrolleview:(UIScrollView*)scrollView{
     
@@ -276,7 +359,7 @@
     
     text.leftViewMode = UITextFieldViewModeAlways;
     
-    [text addTarget:self action:@selector(handtext:) forControlEvents:UIControlEventEditingDidEnd];
+    [text addTarget:self action:@selector(handtext:) forControlEvents:UIControlEventEditingChanged];
     
     [scrollView addSubview:text];
     
@@ -301,49 +384,85 @@
             UIButton * button =   [mySelf.view viewWithTag:16];
             
             
+            if ([selectValue isEqualToString:@"男"]) {
+                self.gender = @"1";
+            }else{
+                
+                self.gender = @"2";
+            }
+            
             [mySelf addBtutton:button title:selectValue];
-            NSLog(@" %@",selectValue);
+         //   NSLog(@" %@",selectValue);
             
         }];
         
         
     }else if (btn.tag==17) {
         
-        [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDate defaultSelValue:@"" minDateStr:@"" maxDateStr:[NSDate currentDateString] isAutoSelect:YES resultBlock:^(NSString *selectValue) {
-            
-            UIButton * button =   [mySelf.view viewWithTag:17];
-            
-            
-            [mySelf addBtutton:button title:selectValue];
-            //NSLog(@" %@",selectValue);
-        }];
+//        [BRDatePickerView showDatePickerWithTitle:@"" dateType:UIDatePickerModeDate defaultSelValue:@"" minDateStr:@"" maxDateStr:[NSDate currentDateString] isAutoSelect:YES resultBlock:^(NSString *selectValue) {
+//            
+//            UIButton * button =   [mySelf.view viewWithTag:17];
+//            
+//            
+//            [mySelf addBtutton:button title:selectValue];
+//            //NSLog(@" %@",selectValue);
+//        }];
     }else if (btn.tag==18){
-        NSString * path = [[NSBundle mainBundle]pathForResource:@"datetime" ofType:@"plist"];
-        NSArray * timearray = [NSArray arrayWithContentsOfFile:path];
+        NSString * pathPlist = [[NSBundle mainBundle]pathForResource:@"boridatezoon" ofType:@"plist"];
+        NSArray * timearray = [NSArray arrayWithContentsOfFile:pathPlist];
         
         [BRStringPickerView showStringPickerWithTitle:@"" dataSource:timearray defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
+            
+            NSString * string = selectValue;
+            
+           int b  = [[string substringWithRange:NSMakeRange(1, 1)] intValue];
+            
+            
+            
+            self.birth_timeslot = [NSString stringWithFormat:@"%d",b+1];
             
             UIButton * button =   [mySelf.view viewWithTag:18];
             
             [mySelf addBtutton:button title:selectValue];
         }];
-    }else if (btn.tag==19){
-        
-        [BRStringPickerView showStringPickerWithTitle:@"出生时区" dataSource:@[@"男", @"女"] defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
-            
-            UIButton * button =   [mySelf.view viewWithTag:19];
-            
-            [mySelf addBtutton:button title:selectValue];
-            
-            
-        }];
-    }
+    }//else if (btn.tag==19){
+//
+//        [BRStringPickerView showStringPickerWithTitle:@"出生时区" dataSource:@[@"男", @"女"] defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
+//
+//            UIButton * button =   [mySelf.view viewWithTag:19];
+//
+//            [mySelf addBtutton:button title:selectValue];
+//
+//
+//        }];
+//    }
     
 }
 -(void)handtext:(UITextField*)textfield{
     
-    NSLog(@"%@",textfield.text);
+    if (textfield.tag==0) {
+        self.suremae = textfield.text;
+    }else if (textfield.tag==1){
+        
+        self.mobile_no = textfield.text;
+        
+    }else if (textfield.tag==2){
+        
+        self.address = textfield.text;
+        
+    }else if (textfield.tag==3){
+        
+       
+        self.deliver_adress =textfield.text;
+        
+    }else if (textfield.tag==8){
+        
+        self.referral = textfield.text;
+    }
+   
 }
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     [textField resignFirstResponder];

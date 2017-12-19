@@ -33,7 +33,7 @@
     
     self.page = 1;
     [self adview];
-    self.token = @"ALVLmZRJjcb7ylBL1mqu";
+  //  self.token = @"ALVLmZRJjcb7ylBL1mqu";
     [self addwork];
     // Do any additional setup after loading the view.
 }
@@ -42,7 +42,7 @@
     
     //
     //NSString *string = @"https://www.ziweiyang.com/api_get_news.php?recordper page=8&page=1&sortby=&token=&s=&main_flag=1&lang=3";
-    NSString * string = [NSString stringWithFormat:@"%@api_get_question.php?recordperpage=8&page=%d&sortby=&username=&token=%@&s=&lang=3",AppNetWork_Post,self.page,self.token];
+    NSString * string = [NSString stringWithFormat:@"%@api_get_question.php?recordperpage=8&page=%d&sortby=&username=%@&token=%@&s=&lang=3",AppNetWork_Post,self.page,AppUserName_USER,AppToken_USER_COOKIE];
     
     __weak typeof (self) mySelf = self;
     

@@ -22,9 +22,9 @@
    // self.webView.delegate = self;
       self.wkwebView  =  [[WKWebView alloc]initWithFrame:self.view.frame configuration:[WKWebViewConfiguration new]];
     
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"qimen" ofType:@"html"];
+    NSString * pathhtml = [[NSBundle mainBundle] pathForResource:@"qimen" ofType:@"html"];
     
-    NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString *htmlString = [NSString stringWithContentsOfFile:pathhtml encoding:NSUTF8StringEncoding error:nil];
     
     NSString *basePath = [[NSBundle mainBundle] bundlePath];
     

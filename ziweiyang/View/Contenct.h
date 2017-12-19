@@ -59,4 +59,10 @@
 
 #define fontColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 
+
+#define kNaHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?20:0)
+#define DefinmySelf __weak typeof(self) mySelf = self
+
+#define urlpath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
 #endif /* Contenct_h */

@@ -16,7 +16,14 @@
 @property(nonatomic,strong) NSMutableArray * photoarray;
 @property(nonatomic,strong) NSMutableArray * photocount;
 
+@property(nonatomic,copy) NSString * fabiaotitle;
+@property(nonatomic,copy) NSString * msg;
+@property(nonatomic,copy) NSString * fourm;
 @property(nonatomic,weak) UILabel * imagelabel;
+@property(nonatomic,copy) NSString * member_only;
+@property(nonatomic,copy) NSString * selectTag;
+
+@property(nonatomic) BOOL isHuiyuan;
 @end
 #define fontColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 @implementation XinTieViewController
@@ -38,6 +45,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isHuiyuan = NO;
     
     UIImageView * imageView = [[UIImageView alloc]init];
     
@@ -88,6 +97,8 @@
     
     textfiled.frame = CGRectMake(20, CGRectGetMaxY(replylabel.frame)+5, self.view.width-40, 40);
     textfiled.backgroundColor = [UIColor whiteColor];
+    
+    [textfiled addTarget:self action:@selector(texfiled:) forControlEvents:UIControlEventEditingChanged];
     
     [scrollview addSubview:textfiled];
     
@@ -177,9 +188,10 @@
     
     if (se.isOn) {
         NSLog(@"會員");
+        self.isHuiyuan = YES;
     }else{
         
-        
+        self.isHuiyuan = NO;
     }
     
 }
@@ -200,6 +212,35 @@
 }
 
 -(void)tiaojiaobutton{
+    
+    NSLog(@"发表");
+    [self addNework];
+}
+-(void)addNework{
+#warning 传值
+//forum资深和建设厂区别
+    
+    
+    
+    NSLog(@" %@  %@",self.fabiaotitle,self.msg);
+    return;
+    
+    NSString * string = [NSString stringWithFormat:@"%@api_post_forum.php?username=%@&title=%@&msg=%@&img=%@&token=%@&active=&forum_type=%@&member_only=%@&tag=%@",AppNetWork_Post,AppUserName_USER,self.fabiaotitle,self.msg,@"",AppToken_USER_COOKIE,self.fourm,self.member_only,self.selectTag];
+    
+    
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+        
+        
+        
+        
+        
+        
+        
+        
+    }];
+    
+    
+    
     
     
 }
@@ -238,7 +279,20 @@
         }
         
     }];
-    NSLog(@"照片");
+   // NSLog(@"照片");
+}
+
+-(void)textViewDidChange:(UITextView *)textView{
+    
+    
+    self.msg = textView.text;
+    
+    
+}
+-(void)texfiled:(UITextField*)tectfield{
+    
+    
+    self.fabiaotitle = tectfield.text;
 }
 -(void)tap:(UITapGestureRecognizer*)sender{
     
@@ -247,7 +301,7 @@
     
     UIImageView *imageVi = [self.view viewWithTag:tap.view.tag];
     
-    NSLog(@"ff电费单 %ld",tap.view.tag);
+    //NSLog(@"ff电费单 %ld",tap.view.tag);
     
     
     

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisteredViewController : UIViewController
-
+@property(nonatomic,strong) UIButton * buttona;
 @end

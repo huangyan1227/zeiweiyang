@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>00(子)</string>
+	<string>01(丑)</string>
+	<string>02(丑)</string>
+	<string>03(寅)</string>
+	<string>04(寅)</string>
+	<string>05(卯)</string>
+	<string>06(卯)</string>
+	<string>07(辰)</string>
+	<string>08(辰)</string>
+	<string>09(巳)</string>
+	<string>10(巳)</string>
+	<string>11(午)</string>
+	<string>12(午)</string>
+	<string>13(未)</string>
+	<string>14(未)</string>
+	<string>15(申)</string>
+	<string>16(申)</string>
+	<string>17(酉)</string>
+	<string>18(酉)</string>
+	<string>19(戌)</string>
+	<string>20(戌)</string>
+	<string>21(亥)</string>
+	<string>22(亥)</string>
+	<string>23(子)</string>
+</array>
+</plist>

@@ -10,21 +10,34 @@
 #import "UIViewController+XHPhoto.h"
 #import "RetrievethepasswordViewController.h"
 #import "BasicDataViewController.h"
+#import "RightModel.h"
 @interface BasicinformationViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * tableView;
 @property(nonatomic,strong) NSArray * baciarrayCont;
 @property(nonatomic,strong) NSArray * bacionearrayCont;
 @property(nonatomic,strong) NSArray * bacitwoarrayCont;
 @property(nonatomic,strong) UIImageView * iconImageView;
+@property(nonatomic) BOOL isfrist;
+@property(nonatomic,strong) NSMutableArray * mutableArray;
+
 @end
 
 @implementation BasicinformationViewController
-
+-(NSMutableArray *)mutableArray {
+    if (!_mutableArray) {
+        
+        _mutableArray = [NSMutableArray array];
+    }
+    
+    return _mutableArray;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self addView];
     
+    self.isfrist = YES;
         NSString * path = [[NSBundle mainBundle] pathForResource:@"basci" ofType:@"plist"];
         NSString * onepath = [[NSBundle mainBundle] pathForResource:@"bascione" ofType:@"plist"];
         NSString * twopath = [[NSBundle mainBundle] pathForResource:@"bascitwo" ofType:@"plist"];
@@ -32,6 +45,46 @@
     self.bacionearrayCont = [NSArray arrayWithContentsOfFile:onepath];
     self.bacitwoarrayCont = [NSArray arrayWithContentsOfFile:twopath];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    if (self.isfrist) {
+        
+        //self.isfrist = NO;
+        
+        [self addNework];
+    }
+}
+-(void)addNework{
+    
+    
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hud.backgroundColor = [UIColor whiteColor];
+    hud.label.text = @"正在加载";
+    
+    NSString * string = [NSString stringWithFormat:@"%@api_get_member_info.php?username=bigmeo2013@gmail.com&token=r6LCrdV6YiJrseAcCE4U&active=",AppNetWork_Post];
+    DefinmySelf;
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+        
+        
+        NSArray * rightModel = [RightModel addBaseModel:responsObj];
+        
+        [mySelf.mutableArray addObjectsFromArray:rightModel];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            [hud hideAnimated:YES];
+            
+           [mySelf.tableView reloadData];
+            
+        });
+        
+        
+    }];
+    
 }
 -(void)addView{
     
@@ -91,17 +144,29 @@
             self.iconImageView.frame = CGRectMake(self.view.width-80, 2, 40,40);
             self.iconImageView.layer.cornerRadius =20;
             
-            self.iconImageView.backgroundColor = [UIColor yellowColor];
+         //   self.iconImageView.backgroundColor = [UIColor yellowColor];
             
             self.iconImageView.layer.masksToBounds = YES;
+            
+            if (self.mutableArray.count>0) {
+                [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[AppNetWork_Post stringByAppendingString:self.mutableArray[indexPath.row]]]];
+            }
+            
             cell.detailTextLabel.text =@"";
             [cell.contentView addSubview:self.iconImageView];
         
         }else{
             
+            if (self.mutableArray.count>0) {
+                
+            //    NSLog(@" %ld",(long)indexPath.row);
+                cell.detailTextLabel.text = self.mutableArray[indexPath.row];
+                
+                 //  NSLog(@" %@",self.mutableArray[indexPath.row]);
+                
+            }
             
-            
-            cell.detailTextLabel.text = @"dd";
+          //  cell.detailTextLabel.text = self.mutableArray[indexPath.row];
             
         }
         
@@ -113,13 +178,18 @@
         
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = self.bacitwoarrayCont[indexPath.row];
-        cell.detailTextLabel.text = @"ddr";
-    }else{
+        cell.detailTextLabel.text = @"";
+    }else if(indexPath.section==2){
         
        
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.text = self.baciarrayCont[indexPath.row];
-        cell.detailTextLabel.text = @"ddw";
+        
+        if (self.mutableArray.count>0) {
+           cell.detailTextLabel.text = self.mutableArray[7+indexPath.row];
+            
+        }
+        
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -153,8 +223,9 @@
             [self.navigationController pushViewController:[RetrievethepasswordViewController new] animated:YES];
             
         }else{
-            
-            [self.navigationController pushViewController:[BasicDataViewController new] animated:YES];
+            BasicDataViewController * basic =       [BasicDataViewController new];
+            basic.array = self.mutableArray;
+        [self.navigationController pushViewController:basic animated:YES];
         }
         
         
@@ -166,6 +237,7 @@
     
     __weak typeof(self) myself = self;
     [self showCanEdit:YES photo:^(UIImage *photo) {
+#warning 上传
         
      ///   [myself.photoarray addObject:photo];
      //   for (int i = 0; i<myself.photoarray.count; i++) {

@@ -12,8 +12,12 @@
 #import "NSDate+BRAdd.h"
 #import "BRDatePickerView.h"
 #import "BRStringPickerView.h"
+#import "Reg.h"
 @interface RegisteredViewController ()<UITextFieldDelegate>
-
+@property(nonatomic,strong) Reg * reg;
+@property(nonatomic,weak) UIButton * tiaokuang;
+@property(nonatomic,weak) UIButton * yingsi;
+@property(nonatomic,strong) UIView * viewa;
 @end
 
 @implementation RegisteredViewController
@@ -21,6 +25,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.reg = [Reg new];
+    
+    self.buttona.hidden = NO;
+    
+    UIView * view = [[UIView alloc]init];
+    
+    view.frame = CGRectMake(self.view.width-130, 0, 130, 50);
+   // view.backgroundColor = [UIColor yellowColor];
+    
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:view];
+    self.viewa = view;
+    [self.navigationController.navigationBar addSubview:view];
+    
+ NSArray * suble = self.navigationController.navigationBar.subviews;
+    NSLog(@" ------%@",suble);
+    
+    for (int i=0; i<suble.count; i++) {
+        
+        if ([suble[i] isKindOfClass:[UIButton class]]) {
+            
+            self.buttona =   suble[i];
+            
+           // [button removeFromSuperview];
+           // button.isHidden = YES;
+           // button.hidden = YES;
+            
+           self.buttona.hidden= YES;
+            //[button setTitle:@"" forState:UIControlStateNormal];
+             NSLog(@" ------%@",suble[i]);
+          //  button ;
+        }
+        
+        
+        
+        
+    }
     
     self.title = @"会员资料";
     // Do any additional setup after loading the view.
@@ -33,6 +73,14 @@
     imageView.image = [UIImage imageNamed:@"bgPattern"];
     
     [self addView];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    NSLog(@"消息");
+    [self.viewa removeFromSuperview];
+    
+    [super viewWillDisappear:animated];
+    
 }
 -(void)addView{
     
@@ -148,12 +196,15 @@
     UIButton * selebuttontiao = [[UIButton alloc]init];
     
     [self addbuton:selebuttontiao frame:CGRectMake(scrollView.width/3, CGRectGetMaxY(texable.frame)+10, 20, 20) title:@"我同意使用条款" view:scrollView action:@selector(selectbutton:) tage2:40];
+    self.tiaokuang = selebuttontiao;
     
     UIButton * selecbuttontiao2 =[[UIButton alloc]init];
     
     [self addbuton:selecbuttontiao2 frame:CGRectMake(scrollView.width/3, CGRectGetMaxY(selebuttontiao.frame)+10, 20, 20) title:@"我同意隐私政策" view:scrollView action:@selector(selectbutton2:) tage2:41];
     
     // CGRectGetMaxY(selecbuttontiao2.frame)+60;
+    
+    self.yingsi = selecbuttontiao2;
     
     UIButton * registebutton = [[UIButton alloc]init];
     
@@ -217,18 +268,101 @@
     
     btn.selected = !btn.selected;
     
+    self.tiaokuang = btn;
+    
     
     
 }-(void)selectbutton2:(UIButton*)btn{
     
     btn.selected = !btn.selected;
     
-    
+    self.yingsi =btn;
     
 }
 -(void)zongbutton{
     
-    NSLog(@"总");
+    
+    if(!self.reg.username.length  || !self.reg.password.length) {
+        
+        [self enterAsiin:@"提醒" messag:@"用户名或密码没有写"];
+        
+        return;
+    }
+    
+    
+    
+  //  NSLog(@" %@  %@",self.reg.password ,self.reg.agsinpassword);
+    if (![self.reg.password isEqualToString:self.reg.agsinpassword]) {
+        
+        //NSLog(@" %@",self.reg.password ,self.reg.agsinpassword);
+       [self enterAsiin:@"提醒" messag:@"密码不一样"];
+        
+        return;
+    }
+    
+    if(!self.tiaokuang.selected  || !self.yingsi.selected) {
+        
+        [self enterAsiin:@"提醒" messag:@"条款和隐私"];
+        
+        return;
+    }
+    
+    
+    
+  
+    MBProgressHUD * hud  = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hud.label.text = @"正在注册....";
+    
+    
+    NSString * string = [NSString stringWithFormat:@"%@api_member_mobile_register.php?username=%@&password=%@&name=%@&contact_no=%@&gender=%@&birth=%@&birth_timeslot=%@&calendar_timezone=%@&address=%@&delivery_address=%@&referral=%@&token=&active=",AppNetWork_Post,self.reg.username,self.reg.password,self.reg.name,self.reg.contact_no,self.reg.gender,self.reg.birth,self.reg.birth_timeslot,self.reg.calendar_timezone,self.reg.address,self.reg.delivery_address,self.reg.referral];
+    DefinmySelf;
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+      
+        
+        BOOL isSucess = responsObj[@"success"];
+        
+        NSString * open = responsObj[@"activate_link"];
+        
+        [hud hideAnimated:YES];
+        
+        if (isSucess) {
+            
+            [mySelf enterAsiin:@"提醒" messag:@"注册成功"];
+            
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:open]]) {
+                
+                [[UIApplication sharedApplication ] openURL:[NSURL URLWithString:open] options:@{} completionHandler:nil];
+                
+                
+            }
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+           
+            //NSLog(@"成功");
+        }else{
+            
+            NSString *  string = responsObj[@"err_msg"];
+            [mySelf enterAsiin:@"提醒" messag: [NSString stringWithFormat:@"注册失败%@",string]];
+        }
+        
+    }];
+    
+ 
+    
+   // NSLog(@"总");
+}
+-(void)enterAsiin:(NSString*)title messag:(NSString*)messg{
+    
+    UIAlertController * aler = [UIAlertController alertControllerWithTitle:title message:messg preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:aler animated:YES completion:nil];
+    
+    UIAlertAction * acation = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+    
+    [aler addAction:acation];
+    
 }
 -(void)button:(UIButton*)sexbutton frame:(CGRect)rect title:(NSString*)title intage:(int)tage scrolleview:(UIScrollView*)scrollView{
     
@@ -261,6 +395,11 @@
     
     text.tag = i;
     
+    if (i==1 || i==2) {
+        
+        text.secureTextEntry = YES;
+    }
+    
     text.backgroundColor = [UIColor whiteColor];
     
     text.frame = frame;
@@ -275,7 +414,7 @@
     
     text.leftViewMode = UITextFieldViewModeAlways;
     
-    [text addTarget:self action:@selector(handtext:) forControlEvents:UIControlEventEditingDidEnd];
+    [text addTarget:self action:@selector(handtext:) forControlEvents:UIControlEventEditingChanged];
     
     [scrollView addSubview:text];
     
@@ -299,9 +438,17 @@
         [BRStringPickerView showStringPickerWithTitle:@"性别" dataSource:@[@"男", @"女"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
             UIButton * button =   [mySelf.view viewWithTag:16];
             
+            if ([selectValue isEqualToString:@"男"]) {
+                
+                self.reg.gender = @"1";
+            }else{
+                
+                self.reg.gender = @"2";
+            }
+            
             
             [mySelf addBtutton:button title:selectValue];
-            NSLog(@" %@",selectValue);
+          
            
         }];
         
@@ -312,26 +459,45 @@
             
          UIButton * button =   [mySelf.view viewWithTag:17];
             
+            self.reg.birth = selectValue;
            
             [mySelf addBtutton:button title:selectValue];
             //NSLog(@" %@",selectValue);
         }];
     }else if (btn.tag==18){
-        NSString * path = [[NSBundle mainBundle]pathForResource:@"datetime" ofType:@"plist"];
-        NSArray * timearray = [NSArray arrayWithContentsOfFile:path];
+//        NSString * path = [[NSBundle mainBundle]pathForResource:@"datetime" ofType:@"plist"];
+//        NSArray * timearray = [NSArray arrayWithContentsOfFile:path];
+//
         
-        [BRStringPickerView showStringPickerWithTitle:@"" dataSource:timearray defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
-    
+        NSArray * arr =[Reg dateArray];
+        [BRStringPickerView showStringPickerWithTitle:@"" dataSource:arr defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
+#warning 时区
+            NSArray * date = [Reg iddateArray];
+            
+            for (int i=0; i<date.count; i++) {
+               
+                Reg  *name =date[i];
+                if ([selectValue isEqualToString:name.dateName]) {
+                    
+                    self.reg.birth_timeslot = name.iddate;
+                    NSLog(@" %@",self.reg.birth_timeslot);
+                }
+            }
+            
+            
+            
             UIButton * button =   [mySelf.view viewWithTag:18];
      
            [mySelf addBtutton:button title:selectValue];
             }];
     }else if (btn.tag==19){
+       
+        NSArray * array =  [Reg addBrithzone];
         
-        [BRStringPickerView showStringPickerWithTitle:@"出生时区" dataSource:@[@"男", @"女"] defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
+        [BRStringPickerView showStringPickerWithTitle:@"出生时区" dataSource:array defaultSelValue:@"" isAutoSelect:YES resultBlock:^(id selectValue) {
     
         UIButton * button =   [mySelf.view viewWithTag:19];
-            
+            self.reg.calendar_timezone = selectValue;
         [mySelf addBtutton:button title:selectValue];
             
           
@@ -341,7 +507,39 @@
 }
 -(void)handtext:(UITextField*)textfield{
     
-    NSLog(@"%@",textfield.text);
+    if (textfield.tag==0) {
+        
+        self.reg.username = textfield.text;
+        
+    }else if (textfield.tag==1){
+        
+        self.reg.password = textfield.text;
+        
+    }else if (textfield.tag==2){
+        
+        self.reg.agsinpassword = textfield.text;
+         ///NSLog(@" %@  %@",self.reg.password ,self.reg.agsinpassword);
+        
+    }else if (textfield.tag==3){
+        
+        self.reg.name = textfield.text;
+        
+    }else if (textfield.tag==4){
+        
+        self.reg.contact_no = textfield.text;
+        
+    }else if (textfield.tag==5){
+        
+        self.reg.address = textfield.text;
+        
+    }else if (textfield.tag==6){
+        
+        self.reg.delivery_address = textfield.text;
+    }else if (textfield.tag ==8){
+        
+        self.reg.referral = textfield.text;
+    }
+   // NSLog(@"%@",textfield.text);
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     

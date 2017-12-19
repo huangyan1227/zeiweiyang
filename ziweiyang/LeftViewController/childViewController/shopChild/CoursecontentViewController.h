@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BookModel.h"
+#import "CoursecontTableViewCell.h"
+#import "CoursecontModel.h"
 @interface CoursecontentViewController : UIViewController
-
+@property(nonatomic,strong) BookModel * bookmodel;
+@property(nonatomic,strong) NSString * api_bookcourse;
+@property(nonatomic,strong) NSString * idmycoursBook;
 @end

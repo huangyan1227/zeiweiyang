@@ -96,7 +96,7 @@
         
         [self.contentView addSubview:datelabeltext];
         
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         
     }
@@ -147,15 +147,37 @@
     _rightmodel = rightmodel;
     
     
-    _zhengdanLabeltext.text = rightmodel.zhangdao;
+    _zhengdanLabeltext.text = rightmodel.code;
     
-    _dinashuLabeltext.text = rightmodel.dianshu;
+    _dinashuLabeltext.text = rightmodel.coin;
     
-    _jiaoyixingLabeltext.text = rightmodel.jiaoyi;
+    _jiaoyixingLabeltext.text = rightmodel.detail;
     
-    _dateLabeltext.text = rightmodel.date;
     
-    if ([rightmodel.dianshu intValue]>0) {
+    //需要转换的字符串
+     NSString *dateString = rightmodel.date;
+   // 设置转换格式
+     NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //NSString转NSDate
+     NSDate *date=[formatter dateFromString:dateString];
+    
+    //装换
+   
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
+    // 设置日期格式 为了转换成功
+    format.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+    // [dateFormatter setDateFormat:@"h:mm:ss a"];
+    format.dateFormat = @"MM月dd日yyyy年hh:mm a";
+    
+    NSString *newString = [format stringFromDate:date];
+    
+    
+
+    _dateLabeltext.text = newString;
+    
+    if ([rightmodel.coin intValue]>0) {
         
         _dinashuLabeltext.textColor = fontColor(0, 172, 0);
         

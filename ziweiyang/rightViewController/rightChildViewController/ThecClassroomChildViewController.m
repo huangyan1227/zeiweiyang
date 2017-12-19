@@ -9,7 +9,10 @@
 #import "ThecClassroomChildViewController.h"
 #import "CoursecontentViewController.h"
 @interface ThecClassroomChildViewController ()
-
+@property(nonatomic,strong) UILabel * detailabel;
+@property(nonatomic,strong) UIImageView * imageView;
+@property(nonatomic,strong) UILabel * datelabel;
+@property(nonatomic,strong) UILabel * kengLabel;
 @end
 
 @implementation ThecClassroomChildViewController
@@ -21,12 +24,42 @@
    
     self.title = @"课程资料";
    
-    [self addView];
+    //[self addView];
+    [self addNework];
     // Do any additional setup after loading the view.
 }
--(void)addView{
+-(void)addNework{
     
-    UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height-60)];
+    
+    NSString * string = [NSString stringWithFormat:@"%@api_get_coursebook.php?id=%@&username=%@&token=%@&active=",AppNetWork_Post,self.classroomModel.course_id,AppUserName_USER,AppToken_USER_COOKIE];
+    
+    DefinmySelf;
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+        
+        NSArray * arrt =[RightModel classroomdataModel:responsObj];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            RightModel * rightModel = arrt[0];
+           
+           
+            [mySelf addView:rightModel];
+            
+            
+            
+        });
+    }];
+    
+    
+    
+    
+    
+}
+-(void)addView:(RightModel*)rightModel{
+    
+    
+     DefinmySelf;
+    UIScrollView * scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, mySelf.view.width, mySelf.view.height-60)];
     
     [self.view addSubview:scrollView];
     
@@ -34,9 +67,14 @@
     
     UIImageView * imageView = [UIImageView new];
     
-    imageView.frame = CGRectMake(10, 60, self.view.width/2-20, self.view.height*1.5/5+20);
+    imageView.frame = CGRectMake(10, 60, mySelf.view.width/2-20, mySelf.view.height*1.5/5+20);
     
-    imageView.centerX = self.view.centerX;
+    imageView.centerX = mySelf.view.centerX;
+    
+    //self.imageView = imageView;
+    
+    
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[AppNetWork_Post stringByAppendingString:rightModel.bookimagurl]]];
     
     [scrollView addSubview:imageView];
     
@@ -45,65 +83,88 @@
     
   //  [imageView sd_setImageWithURL:[NSURL URLWithString:[AppNetWork_Post stringByAppendingString:self.model.imagebook]]];
     
-     imageView.image = [UIImage imageNamed:@"book"];
+     //imageView.image = [UIImage imageNamed:@"book"];
     
     UILabel * namlable = [[UILabel alloc]init];
     
-    namlable.frame = CGRectMake(10, CGRectGetMaxY(imageView.frame)+30, self.view.width-10, 40);
+    namlable.frame = CGRectMake(10, CGRectGetMaxY(imageView.frame)+30, mySelf.view.width-10, 40);
     
-    namlable.text = [NSString stringWithFormat:@"课程名称: %@",@"紫微斗数"];
+    namlable.text = [NSString stringWithFormat:@"课程名称: %@",mySelf.classroomModel.namelabeltext1];
     namlable.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:namlable];
     
     UILabel * dateLable = [[UILabel alloc]init];
     
-    dateLable.frame = CGRectMake(10, CGRectGetMaxY(namlable.frame)+10, self.view.width-10, 40);
+    dateLable.frame = CGRectMake(10, CGRectGetMaxY(namlable.frame)+10, mySelf.view.width-10, 40);
+    // mySelf.datelabel.text = rightModel.bookuploaddate;
     
-    dateLable.text =  [NSString stringWithFormat:@"上传时间: %@",@"2017-05-01"];
+    dateLable.text =  [NSString stringWithFormat:@"上传时间: %@", rightModel.bookuploaddate];
+    
+    //self.datelabel = dateLable;
     
     dateLable.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:dateLable];
     
     
-//    UILabel *kecheng = [[UILabel alloc]init];
-//
-//    kecheng.frame = CGRectMake(10, CGRectGetMaxY(dateLable.frame)+10, 80, 40);
-//
-//    kecheng.text = @"课程简介:";
-//
-//    kecheng.textColor = [UIColor whiteColor];
-//
-//    [scrollView addSubview:kecheng];
-//
-//    UILabel * neirong = [[UILabel alloc]init];
-//
-//    neirong.text = self.model.detailbook;
-//
-//    CGSize maximunLabsize = CGSizeMake(self.view.width-kecheng.width-10-30, MAXFLOAT);
-//
-//    neirong.textColor = [UIColor whiteColor];
-//
-//    neirong.numberOfLines = 0;
-//
-//    neirong.adjustsFontSizeToFitWidth = YES;
-//
-//    neirong.lineBreakMode = NSLineBreakByTruncatingTail;
-//
-//
-//    CGSize size = [neirong sizeThatFits:maximunLabsize];
-//
-//
-//
-//    neirong.frame = CGRectMake(CGRectGetMaxX(kecheng.frame)+1,CGRectGetMaxY(dateLable.frame)+20 , size.width, size.height);
-//
-//    [scrollView addSubview:neirong];
-//
+    UILabel *kecheng = [[UILabel alloc]init];
+
+    kecheng.frame = CGRectMake(10, CGRectGetMaxY(dateLable.frame)+10, 80, 40);
+
+   
+   // self.kengLabel = kecheng;
+    
+    
+    
+    kecheng.textColor = [UIColor whiteColor];
+
+    [scrollView addSubview:kecheng];
+
+    UILabel * neirong = [[UILabel alloc]init];
+
+    //self.datelabel = neirong;
+    
+     //neirong.text = @"";
+    if (rightModel.bookdetail.length >0) {
+        
+        
+        kecheng.text = @"课程简介:";
+        
+        
+         neirong.text = rightModel.bookdetail;
+        
+        
+    }
+   
+    CGSize maximunLabsize = CGSizeMake(mySelf.view.width-kecheng.width-10-30, MAXFLOAT);
+    
+    neirong.textColor = [UIColor whiteColor];
+    
+    neirong.numberOfLines = 0;
+    
+    neirong.font = [UIFont systemFontOfSize:14];
+    
+    neirong.adjustsFontSizeToFitWidth = YES;
+    
+    neirong.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+    
+    CGSize size = [neirong sizeThatFits:maximunLabsize];
+    
+    
+    
+    neirong.frame = CGRectMake(CGRectGetMaxX(kecheng.frame)+1,CGRectGetMaxY(dateLable.frame)+20 , size.width, size.height);
+    
+    [scrollView addSubview:neirong];
+
+  
+    [scrollView addSubview:neirong];
+
     
     UIButton * button = [[UIButton alloc]init];
     
-    button.frame =CGRectMake(40, CGRectGetMaxY(dateLable.frame)+20, self.view.width-80, 30);
+    button.frame =CGRectMake(40, CGRectGetMaxY(neirong.frame)+20, mySelf.view.width-80, 30);
     
     [button addTarget:self action:@selector(clickback) forControlEvents:UIControlEventTouchUpInside];
     
@@ -111,13 +172,18 @@
     
     [scrollView addSubview:button];
     
-    scrollView.contentSize = CGSizeMake(self.view.width, CGRectGetMaxY(button.frame)+20);
+    scrollView.contentSize = CGSizeMake(mySelf.view.width, CGRectGetMaxY(button.frame)+20);
 }
 -(void)clickback{
     
+    CoursecontentViewController*coursecont =   [CoursecontentViewController new];
+   
+    coursecont.api_bookcourse = @"api_get_coursebook_detail.php";
     
+    coursecont.idmycoursBook = self.classroomModel.course_id;
     
-    [self.navigationController pushViewController:[CoursecontentViewController new] animated:YES];
+   // NSLog(@"888 %@",self.classroomModel.course_id);
+    [self.navigationController pushViewController:coursecont animated:YES];
     
 }
 - (void)didReceiveMemoryWarning {

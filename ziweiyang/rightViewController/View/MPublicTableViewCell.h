@@ -10,4 +10,5 @@
 #import "RightModel.h"
 @interface MPublicTableViewCell : UITableViewCell
 @property(nonatomic,strong) RightModel * rightmodel;
+
 @end

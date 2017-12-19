@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RightModel.h"
 @interface ThecClassroomChildViewController : UIViewController
 
+@property(nonatomic,strong) RightModel * classroomModel;
 @end

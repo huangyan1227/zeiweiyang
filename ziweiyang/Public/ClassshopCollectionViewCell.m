@@ -153,9 +153,10 @@
       _nameImagView.frame = CGRectMake(0, CGRectGetMaxY(_imageView.frame)-5, self.frame.size.width, 20);
     
     _nalabled.frame  = CGRectMake(0, CGRectGetMaxY(_nameImagView.frame), self.frame.size.width, 1.3*h);
+    //_nalabled.backgroundColor = [UIColor yellowColor];
     
-    _datelabe.frame = CGRectMake(0, CGRectGetMaxY(_nalabled.frame), self.frame.size.width, _nalabled.frame.size.height);
-    
+    _datelabe.frame = CGRectMake(0, CGRectGetMaxY(_nalabled.frame)+10, self.frame.size.width, _nalabled.frame.size.height+10);
+  //  _datelabe.backgroundColor = [UIColor redColor];
     
    // }
     

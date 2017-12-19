@@ -51,7 +51,8 @@
     
     //
 //NSString *string = @"https://www.ziweiyang.com/api_get_news.php?recordper page=8&page=1&sortby=&token=&s=&main_flag=1&lang=3";
-    NSString * string = [NSString stringWithFormat:@"%@api_get_news.php?recordper page=8&page=%d&sortby=&token=&s=&main_flag=1&lang=3",AppNetWork_Post,self.page];
+    NSString * string = [NSString stringWithFormat:@"%@api_get_news.php?recordper page=%ld&page=%d&sortby=&token=&s=&main_flag=1&lang=3",AppNetWork_Post,RecordPerpage,self.page];
+    
     
     __weak typeof (self) mySelf = self;
     

@@ -12,4 +12,5 @@
 @property(nonatomic,strong) BBSModel * model;
 @property(nonatomic,copy) NSString * formid;
 @property(nonatomic) BOOL isCellone ;
+@property(nonatomic,copy) NSString * sortby;
 @end

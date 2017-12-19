@@ -10,4 +10,5 @@
 #import "BookModel.h"
 @interface ClassShopViewController : UIViewController
 @property(nonatomic,strong) BookModel * model;
+@property(nonatomic,strong) NSString * api_bookCourse;
 @end

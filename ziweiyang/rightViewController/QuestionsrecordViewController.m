@@ -7,9 +7,11 @@
 //  提问记录
 
 #import "QuestionsrecordViewController.h"
-
+#import "TitleSlider.h"
+#import "ThedayproblemrightViewController.h"
+#import "ProblemsreplyViewController.h"
 @interface QuestionsrecordViewController ()
-
+@property(nonatomic,strong) TitleSlider * titleSlider;
 @end
 
 @implementation QuestionsrecordViewController
@@ -17,6 +19,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.titleSlider = [[TitleSlider alloc]init];
+    
+ ThedayproblemrightViewController * topic = [ThedayproblemrightViewController new];
+    
+    // topic.view.backgroundColor = [UIColor redColor];
+    
+    ProblemsreplyViewController * reply = [  ProblemsreplyViewController new];
+    
+    // reply.view.backgroundColor = [UIColor yellowColor];
+    //  [self addchild:@"紫薇楊" vicontroller:ziyei];
+    
+    
+    
+    [self.titleSlider adduiViewcontroll:self title:@[@"每日问题",@"问题回复"] addvieController:@[topic,reply]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -52,7 +52,11 @@
     [self.view addSubview:datelable];
     //style="background-image: url('bgPattern.jpg'); background-repeat: repeat;
     
-    NSString * a = [NSString stringWithFormat:@"<html><meta charset = \"UTF-8\"  content = \"text/html\"><head></head><body font－size:33px ;>%@</body><style type=\"text/css\">body {font-size:34px !important;background-image: url('ziweiyang/html/img/bgPattern.jpg'); background-repeat: repeat;background:#FCF9E7;}</style></html>",self.home.detail];
+    
+    NSString * ab = [self.home.detail stringByReplacingOccurrencesOfString:@"&#34;" withString:@"\""];
+    
+    
+    NSString * a = [NSString stringWithFormat:@"<html><meta charset = \"UTF-8\"  content = \"text/html\"><meta name=\"viewport\" content=\"width=device-width; initial-scale=1; user-scalable=no\"><head></head><body font－size:19px ;>%@</body><style type=\"text/css\">body {font-size:19px !important;background-image: url('ziweiyang/html/img/bgPattern.jpg'); background-repeat: repeat;background:#FCF9E7;}</style></html>",ab];
      
   WKWebViewConfiguration * cont = [[WKWebViewConfiguration alloc]init];
     self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(datelable.frame)+10, self.view.frame.size.width-20, self.view.frame.size.height - CGRectGetMaxY(datelable.frame)-60) configuration:cont];

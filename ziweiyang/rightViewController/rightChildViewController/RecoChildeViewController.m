@@ -39,15 +39,15 @@
     //NSString * string = @"https://www.ziweiyang.com/";
     
     
-   // [imageView sd_setImageWithURL:[NSURL URLWithString:[AppNetWork_Post stringByAppendingString:self.model.imagebook]]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[AppNetWork_Post stringByAppendingString:self.rightmodel.storeimageurl]]];
     
-     imageView.image = [UIImage imageNamed:@"book"];
+    // imageView.image = [UIImage imageNamed:@"book"];
     
     UILabel * namlable = [[UILabel alloc]init];
     
     namlable.frame = CGRectMake(10, CGRectGetMaxY(imageView.frame)+30, self.view.width-10, 40);
     
-    namlable.text = [NSString stringWithFormat:@"课程名称: %@",@"帅哥"];
+    namlable.text = [NSString stringWithFormat:@"课程名称: %@",self.rightmodel.storebookName];
     namlable.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:namlable];
@@ -55,46 +55,50 @@
     UILabel * dateLable = [[UILabel alloc]init];
     
     dateLable.frame = CGRectMake(10, CGRectGetMaxY(namlable.frame)+10, self.view.width-10, 40);
-    
-    dateLable.text =  [NSString stringWithFormat:@"上传时间: %@",@"2017-05-31"];
+   
+    dateLable.text =  [NSString stringWithFormat:@"上传时间: %@",self.rightmodel.storedate ];
     
     dateLable.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:dateLable];
     
     
-//    UILabel *kecheng = [[UILabel alloc]init];
-//
-//    kecheng.frame = CGRectMake(10, CGRectGetMaxY(dateLable.frame)+10, 80, 40);
-//
-//    kecheng.text = @"课程简介:";
-//
-//    kecheng.textColor = [UIColor whiteColor];
-//
-//    [scrollView addSubview:kecheng];
-//
-//    UILabel * neirong = [[UILabel alloc]init];
-//
-//   // neirong.text = self.model.detailbook;
-//
-//    CGSize maximunLabsize = CGSizeMake(self.view.width-kecheng.width-10-30, MAXFLOAT);
-//
-//    neirong.textColor = [UIColor whiteColor];
-//
-//    neirong.numberOfLines = 0;
-//
-//    neirong.adjustsFontSizeToFitWidth = YES;
-//
-//    neirong.lineBreakMode = NSLineBreakByTruncatingTail;
-//
-//
-//    CGSize size = [neirong sizeThatFits:maximunLabsize];
-//
-//
-//
-//    neirong.frame = CGRectMake(CGRectGetMaxX(kecheng.frame)+1,CGRectGetMaxY(dateLable.frame)+20 , size.width, size.height);
-//
-//    [scrollView addSubview:neirong];
+    UILabel *kecheng = [[UILabel alloc]init];
+
+    kecheng.frame = CGRectMake(10, CGRectGetMaxY(dateLable.frame)+10, 80, 40);
+
+  
+
+    kecheng.textColor = [UIColor whiteColor];
+
+    [scrollView addSubview:kecheng];
+
+    UILabel * neirong = [[UILabel alloc]init];
+    
+    if (self.rightmodel.storedetail.length>0) {
+          kecheng.text = @"课程简介:";
+        neirong.text = self.rightmodel.storedetail;
+    }
+   // neirong.text = self.model.detailbook;
+
+    CGSize maximunLabsize = CGSizeMake(self.view.width-kecheng.width-10-30, MAXFLOAT);
+
+    neirong.textColor = [UIColor whiteColor];
+
+    neirong.numberOfLines = 0;
+
+    neirong.adjustsFontSizeToFitWidth = YES;
+
+    neirong.lineBreakMode = NSLineBreakByTruncatingTail;
+
+
+    CGSize size = [neirong sizeThatFits:maximunLabsize];
+
+
+
+    neirong.frame = CGRectMake(CGRectGetMaxX(kecheng.frame)+1,CGRectGetMaxY(dateLable.frame)+20 , size.width, size.height);
+
+    [scrollView addSubview:neirong];
     
     
     UIButton * button = [[UIButton alloc]init];
@@ -111,9 +115,12 @@
 }
 -(void)clickback{
     
+    CoursecontentViewController * coursecont = [CoursecontentViewController new];
     
+    coursecont.api_bookcourse = @"api_get_ebook_detail.php";
     
-    [self.navigationController pushViewController:[CoursecontentViewController new] animated:YES];
+    coursecont.idmycoursBook = self.rightmodel.storebookid;
+    [self.navigationController pushViewController:coursecont animated:YES];
     
 }
 

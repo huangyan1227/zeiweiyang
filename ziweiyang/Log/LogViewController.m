@@ -9,6 +9,7 @@
 #import "LogViewController.h"
 #import "RetrievethepasswordViewController.h"
 #import "RegisteredViewController.h"
+
 @interface LogViewController ()<UITextFieldDelegate>
 {
     UITextField * textUser;
@@ -18,14 +19,26 @@
     
     
 }
-@property(nonatomic,strong) UIButton * jbutton;
+@property(nonatomic,weak) UIButton * jbutton;
+
+@property(nonatomic,strong) NSString * path;
 #define mainSize    [UIScreen mainScreen].bounds.size
 @end
 
 @implementation LogViewController
-
+-(NSString *)path {
+    if (!_path) {
+        
+        _path = [urlpath stringByAppendingPathComponent:@"username.plist"];
+    }
+    
+    return _path;
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.button.hidden =YES;
   //  self.view.backgroundColor = [UIColor colorWithDisplayP3Red:253/255.0 green:243/255.0 blue:224/255.0 alpha:1];
     
     UIImageView * imageView = [[UIImageView alloc]init];
@@ -35,7 +48,57 @@
     [self.view insertSubview:imageView atIndex:0 ];
     
     imageView.image = [UIImage imageNamed:@"bgPattern"];
+    
     [self logView];
+    
+    [self addNotionfication];
+    
+    
+    [self initDataByPlist];
+   
+    //self.navigationItem.rightBarButtonItem =[]
+    // Do any additional setup after loading the view.
+}
+-(void)addNotionfication{
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appenbackgrund) name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
+    
+    
+    
+}
+-(void)appenbackgrund{
+    
+    NSString *nameStr = textUser.text;
+    
+    NSString *pwdStr = textPwd.text;
+    
+    NSDictionary *dic = @{@"name":nameStr,@"pass":pwdStr};
+    
+    [dic writeToFile:self.path atomically:YES];
+    
+    
+}
+-(void)initDataByPlist{
+    
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.path]) {
+        
+        NSDictionary * dataDic = [NSDictionary dictionaryWithContentsOfFile:self.path];
+        
+        self.jbutton.selected = YES;
+        
+        textUser.text =[dataDic objectForKey:@"name"];
+        
+        textPwd.text =[dataDic objectForKey:@"pass"];
+        
+        
+    }
+    
+    
+    
+    
+}
+-(void)addView{
     
     UIButton *bu = [[UIButton alloc]init];
     
@@ -45,11 +108,12 @@
     [bu addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     
     [bu setTitle:@"返回" forState:UIControlStateNormal];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:bu];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:bu];
     
-    //self.navigationItem.rightBarButtonItem =[]
-    // Do any additional setup after loading the view.
+    
+    
 }
+
 -(void)back{
     
     
@@ -98,6 +162,8 @@
     
     [self testfiled:textPwd string:@"" placeholder:@"请输入密码"];
     
+    textPwd.secureTextEntry = YES;
+    
     UIButton * jbu = [[UIButton alloc]init];
 
     //jbu.backgroundColor = [UIColor redColor];
@@ -136,11 +202,7 @@
     
     UIButton * denglu = [[UIButton alloc]init];
     [self addbuton:denglu frame:CGRectMake(0, CGRectGetMaxY(jbu.frame)+10, vlogin.width, 40) view:vlogin sel:@selector(denglu:) title:@""];
-    //denglu.backgroundColor = [UIColor greenColor];
-    
-    //[UIImage imageNamed:@"signin.png"]
- // UIImage * iamge =  [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"signin" ofType:@"png"]];
-   
+
    
      [denglu setBackgroundImage:[UIImage imageNamed:@"signin.png"] forState:UIControlStateNormal];
     UIButton * zhuce = [[UIButton alloc]init];
@@ -151,10 +213,17 @@
 }
 -(void)zhuce:(UIButton*)zhbu{
     
+    RegisteredViewController * registe = [RegisteredViewController new];
     
-    [self.navigationController pushViewController:[RegisteredViewController new] animated:YES];
+    
+    registe.buttona = self.button;
+    
+    //self.button.hidden =YES;
+    
+    [self.navigationController pushViewController:registe animated:YES];
     //NSLog(@"注册");
 }
+
 -(void)addbuton:(UIButton*)btn frame:(CGRect)rect view:(UIView*)view sel:(SEL)action title:(NSString*)title{
     
     btn.frame =  rect;
@@ -174,21 +243,155 @@
 }
 
 -(void)denglu:(UIButton *)deg{
+    //https://www.ziweiyang.com/api_get_login.php?u=bigmeo2013@gmail.com&p=password
+    //bigmeo2013@gmail.com
+    //password
+    
+    textUser.text = @"bigmeo2013@gmail.com";
+    
+    textPwd.text =@"password";
+    
+    if (textUser.text.length==0) {
+        
+        [self enterAsiin:@"提醒" messag:@"密碼或賬號空 請重新輸入"];
+        
+        return;
+    }
+    
+    MBProgressHUD * hup =[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hup.label.text =@"正在登錄";
+    
+    NSString * string =[NSString stringWithFormat:@"%@api_get_login.php?u=%@&p=%@",AppNetWork_Post,textUser.text,textPwd.text];
     
     
+    DefinmySelf;
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+    
+        
+        if (or) {
+            [hup hideAnimated:YES];
+            
+            //[myslef enterAgsin:@"提醒" messag:@"請檢查網絡"];
+            [mySelf enterAsiin:@"提醒" messag:@"請檢查網絡"];
+            NSLog(@"失败");
+            return ;
+            
+        }
+        NSDictionary * ditct = responsObj;
+        
+       // AppLog_State = true;\
+        
+        BOOL state =ditct[@"success"];
+        
+        if (state) {
+            
+            if (mySelf.jbutton.selected) {
+             
+                [mySelf appenbackgrund];
+                
+            }
+      
+   
+        AppLog_State = state;
+        
+        AppToken_USER_COOKIE = ditct[@"token"];
+        
+        AppUserName_USER = textUser.text;
+        
+        AppPassword_PASSWORD = textPwd.text;
+            
+        [hup hideAnimated:YES];
+            
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+           //   self.button.hidden = NO;
+                
+        [mySelf.navigationController popViewControllerAnimated:YES];
+           
+        });
+            
+        }else{
+            
+               [mySelf enterAsiin:@"提醒" messag:@"密码和用户名错误"];
+            
+        }
+        
+         [hup hideAnimated:YES];
+       
+    }];
+   
     
 }
 -(void)wangjimima{
     
+    //[self dismissViewControllerAnimated:YES completion:nil];
     
-    [self.navigationController pushViewController:[RetrievethepasswordViewController new] animated:true];
-    NSLog(@"忘记");
+    RetrievethepasswordViewController*retrieve =   [RetrievethepasswordViewController new];
+    
+    retrieve.logbutton = self.button;
+    [self.navigationController pushViewController:retrieve animated:true];
+  //  NSLog(@"忘记");
     
 }
 -(void)jibutton:(UIButton*)bg{
     
     bg.selected = !bg.selected;
     NSLog(@"记住米每秒");
+    if (bg.selected) {
+        [self appenbackgrund];
+    }else{
+        
+        //移除
+        [self reomveFile];
+    }
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    self.button.hidden =YES;
+    
+}
+//移除
+-(void)reomveFile{
+    
+    NSFileManager * filer = [NSFileManager defaultManager];
+    
+    if ([filer fileExistsAtPath:self.path]){
+       // NSLog(@"ddd");
+        self.jbutton.selected = NO;
+        
+        [filer removeItemAtPath:self.path error:nil];
+        
+    }
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    self.button.hidden = NO;
+    if (AppLog_State) {
+        
+        [self.button setTitle:@"成功登录" forState:UIControlStateNormal];
+    }else{
+        
+         [self.button setTitle:@"登录" forState:UIControlStateNormal];
+        
+    }
+    
+    [super viewWillDisappear:animated];
+   // NSLog(@"简要小时");
+}
+
+-(void)enterAsiin:(NSString*)title messag:(NSString*)messg{
+    
+    UIAlertController * aler = [UIAlertController alertControllerWithTitle:title message:messg preferredStyle:UIAlertControllerStyleAlert];
+    
+    [self presentViewController:aler animated:YES completion:nil];
+    
+    UIAlertAction * acation = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil];
+    
+    [aler addAction:acation];
     
 }
 -(void)testfiled:(UITextField *)textfiled string:(NSString *)text placeholder:(NSString *)placeholdertext{
@@ -236,6 +439,7 @@
 //    [textfiled.layer addSublayer:gradientLayer];
     
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     [textUser resignFirstResponder];

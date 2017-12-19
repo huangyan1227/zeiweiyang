@@ -16,6 +16,7 @@
     
     
 }
+@property(nonatomic,strong) UIView * viewa;
 #define mainSize    [UIScreen mainScreen].bounds.size
 @end
 
@@ -23,6 +24,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.logbutton.hidden=YES;
+    
+    
+    UIView * view = [[UIView alloc]init];
+    
+    view.frame = CGRectMake(self.view.width-130, 0, 130, 50);
+    // view.backgroundColor = [UIColor yellowColor];
+    
+    //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:view];
+    self.viewa = view;
+    [self.navigationController.navigationBar addSubview:view];
+    
     
   //  self.view.backgroundColor = [UIColor colorWithDisplayP3Red:(CGFloat)253/255.0 green:247/255.0 blue:227/255.0 alpha:1];
     // Do any additional setup after loading the view.
@@ -35,6 +49,12 @@
     imageView.image = [UIImage imageNamed:@"bgPattern"];
     
     [self addview];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    [self.viewa removeFromSuperview];
 }
 -(void)addview{
     vlogin = [[UIView alloc]initWithFrame:CGRectMake(10, 10, mainSize.width-20, mainSize.height*3/4)];
@@ -81,8 +101,8 @@
 }
 -(void)tijiao{
     
-    
-    NSLog(@"地那就");
+    [self.navigationController popViewControllerAnimated:YES];
+   // NSLog(@"地那就");
 }
 
 -(void)testfiled:(UITextField *)textfiled string:(NSString *)text placeholder:(NSString *)placeholdertext{

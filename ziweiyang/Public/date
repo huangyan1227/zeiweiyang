@@ -1,0 +1,674 @@
+[
+[
+{
+"value": "Asia/Hong_Kong",
+"name": "(GMT+08:00) 香港,澳門"
+}
+],
+[
+{
+"value": "Asia/Chongqing",
+"name": "(GMT+08:00) 中國"
+}
+],
+[
+{
+"value": "Asia/Taipei",
+"name": "(GMT+08:00) 臺北"
+}
+],
+[
+{
+"value": "Pacific/Midway",
+"name": "(GMT-11:00) 中途島"
+}
+],
+[
+{
+"value": "US/Samoa",
+"name": "(GMT-11:00) 薩摩亞"
+}
+],
+[
+{
+"value": "US/Hawaii",
+"name": "(GMT-10:00) 夏威夷"
+}
+],
+[
+{
+"value": "US/Alaska",
+"name": "(GMT-09:00) 阿拉斯加"
+}
+],
+[
+{
+"value": "US/Pacific",
+"name": "(GMT-08:00) 太平洋時間 (美國和加拿大)"
+}
+],
+[
+{
+"value": "America/Tijuana",
+"name": "(GMT-08:00) 華納"
+}
+],
+[
+{
+"value": "US/Arizona",
+"name": "(GMT-07:00) 亞歷桑那"
+}
+],
+[
+{
+"value": "US/Mountain",
+"name": "(GMT-07:00) 山地時間 (美國和加拿大)"
+}
+],
+[
+{
+"value": "America/Chihuahua",
+"name": "(GMT-07:00) 奇華華"
+}
+],
+[
+{
+"value": "America/Mazatlan",
+"name": "(GMT-07:00) 馬薩特蘭"
+}
+],
+[
+{
+"value": "America/Mexico_City",
+"name": "(GMT-06:00) 墨西哥市"
+}
+],
+[
+{
+"value": "America/Monterrey",
+"name": "(GMT-06:00) 蒙特瑞"
+}
+],
+[
+{
+"value": "Canada/Saskatchewan",
+"name": "(GMT-06:00) 薩克其萬"
+}
+],
+[
+{
+"value": "US/Central",
+"name": "(GMT-06:00) 中部時間 (美國和加拿大)"
+}
+],
+[
+{
+"value": "US/Eastern",
+"name": "(GMT-05:00) 加拿大東部時間 (美國和加拿大)"
+}
+],
+[
+{
+"value": "US/East-Indiana",
+"name": "(GMT-05:00) 那 (東部)"
+}
+],
+[
+{
+"value": "America/Bogota",
+"name": "(GMT-05:00) 波哥大"
+}
+],
+[
+{
+"value": "America/Lima",
+"name": "(GMT-05:00) 利馬"
+}
+],
+[
+{
+"value": "America/Caracas",
+"name": "(GMT-04:30) 卡拉卡斯"
+}
+],
+[
+{
+"value": "Canada/Atlantic",
+"name": "(GMT-04:00) 加拿大大西洋時間 (加拿大)"
+}
+],
+[
+{
+"value": "America/La_Paz",
+"name": "(GMT-04:00) 拉帕茲"
+}
+],
+[
+{
+"value": "America/Santiago",
+"name": "(GMT-04:00) 聖地亞哥"
+}
+],
+[
+{
+"value": "Canada/Newfoundland",
+"name": "(GMT-03:30) 紐芬蘭"
+}
+],
+[
+{
+"value": "America/Buenos_Aires",
+"name": "(GMT-03:00) 南美洲東北部"
+}
+],
+[
+{
+"value": "Greenland",
+"name": "(GMT-03:00) 格陵蘭"
+}
+],
+[
+{
+"value": "Atlantic/Stanley",
+"name": "(GMT-02:00) 大西洋中部"
+}
+],
+[
+{
+"value": "Atlantic/Azores",
+"name": "(GMT-01:00) 亞速爾群島"
+}
+],
+[
+{
+"value": "Atlantic/Cape_Verde",
+"name": "(GMT-01:00) 維德角"
+}
+],
+[
+{
+"value": "Africa/Casablanca",
+"name": "(GMT) 達爾貝達"
+}
+],
+[
+{
+"value": "Europe/Dublin",
+"name": "(GMT) 都柏林"
+}
+],
+[
+{
+"value": "Europe/Lisbon",
+"name": "(GMT) 里斯本"
+}
+],
+[
+{
+"value": "Europe/London",
+"name": "(GMT) 倫敦"
+}
+],
+[
+{
+"value": "Africa/Monrovia",
+"name": "(GMT) 蒙羅維亞"
+}
+],
+[
+{
+"value": "Europe/Amsterdam",
+"name": "(GMT+01:00) 阿姆斯特丹"
+}
+],
+[
+{
+"value": "Europe/Belgrade",
+"name": "(GMT+01:00) 貝爾格勒"
+}
+],
+[
+{
+"value": "Europe/Berlin",
+"name": "(GMT+01:00) 柏林"
+}
+],
+[
+{
+"value": "Europe/Bratislava",
+"name": "(GMT+01:00) 布拉迪斯拉"
+}
+],
+[
+{
+"value": "Europe/Brussels",
+"name": "(GMT+01:00) 布魯塞爾"
+}
+],
+[
+{
+"value": "Europe/Budapest",
+"name": "(GMT+01:00) 布達佩斯"
+}
+],
+[
+{
+"value": "Europe/Copenhagen",
+"name": "(GMT+01:00) 哥本哈根"
+}
+],
+[
+{
+"value": "Europe/Ljubljana",
+"name": "(GMT+01:00) 盧布亞納"
+}
+],
+[
+{
+"value": "Europe/Madrid",
+"name": "(GMT+01:00) 馬德里"
+}
+],
+[
+{
+"value": "Europe/Paris",
+"name": "(GMT+01:00) 法國"
+}
+],
+[
+{
+"value": "Europe/Prague",
+"name": "(GMT+01:00) 布拉格"
+}
+],
+[
+{
+"value": "Europe/Rome",
+"name": "(GMT+01:00) 羅馬"
+}
+],
+[
+{
+"value": "Europe/Sarajevo",
+"name": "(GMT+01:00) 薩拉熱窩"
+}
+],
+[
+{
+"value": "Europe/Skopje",
+"name": "(GMT+01:00) 史高比耶"
+}
+],
+[
+{
+"value": "Europe/Stockholm",
+"name": "(GMT+01:00) 斯德哥爾摩"
+}
+],
+[
+{
+"value": "Europe/Vienna",
+"name": "(GMT+01:00) 維也納"
+}
+],
+[
+{
+"value": "Europe/Warsaw",
+"name": "(GMT+01:00) 華沙"
+}
+],
+[
+{
+"value": "Europe/Zagreb",
+"name": "(GMT+01:00) 札格雷布"
+}
+],
+[
+{
+"value": "Europe/Athens",
+"name": "(GMT+02:00) 雅典"
+}
+],
+[
+{
+"value": "Europe/Bucharest",
+"name": "(GMT+02:00) 布加勒斯特"
+}
+],
+[
+{
+"value": "Africa/Cairo",
+"name": "(GMT+02:00) 開羅"
+}
+],
+[
+{
+"value": "Africa/Harare",
+"name": "(GMT+02:00) 哈拉雷"
+}
+],
+[
+{
+"value": "Europe/Helsinki",
+"name": "(GMT+02:00) 赫爾辛基"
+}
+],
+[
+{
+"value": "Europe/Istanbul",
+"name": "(GMT+02:00) 伊斯坦堡"
+}
+],
+[
+{
+"value": "Asia/Jerusalem",
+"name": "(GMT+02:00) 耶路撒冷"
+}
+],
+[
+{
+"value": "Europe/Kiev",
+"name": "(GMT+02:00) 基輔"
+}
+],
+[
+{
+"value": "Europe/Minsk",
+"name": "(GMT+02:00) 明斯克"
+}
+],
+[
+{
+"value": "Europe/Riga",
+"name": "(GMT+02:00) 里加"
+}
+],
+[
+{
+"value": "Europe/Sofia",
+"name": "(GMT+02:00) 索非亞"
+}
+],
+[
+{
+"value": "Europe/Tallinn",
+"name": "(GMT+02:00) 塔林"
+}
+],
+[
+{
+"value": "Europe/Vilnius",
+"name": "(GMT+02:00) 維爾紐斯"
+}
+],
+[
+{
+"value": "Asia/Baghdad",
+"name": "(GMT+03:00) 巴格達"
+}
+],
+[
+{
+"value": "Asia/Kuwait",
+"name": "(GMT+03:00) 科威特"
+}
+],
+[
+{
+"value": "Africa/Nairobi",
+"name": "(GMT+03:00) 奈洛比"
+}
+],
+[
+{
+"value": "Asia/Riyadh",
+"name": "(GMT+03:00) 利雅德"
+}
+],
+[
+{
+"value": "Asia/Tehran",
+"name": "(GMT+03:30) 德黑蘭"
+}
+],
+[
+{
+"value": "Europe/Moscow",
+"name": "(GMT+04:00) 莫斯科"
+}
+],
+[
+{
+"value": "Asia/Baku",
+"name": "(GMT+04:00) 巴庫"
+}
+],
+[
+{
+"value": "Europe/Volgograd",
+"name": "(GMT+04:00) 伏爾加格勒"
+}
+],
+[
+{
+"value": "Asia/Muscat",
+"name": "(GMT+04:00) 馬斯喀特"
+}
+],
+[
+{
+"value": "Asia/Tbilisi",
+"name": "(GMT+04:00) 提比裡斯"
+}
+],
+[
+{
+"value": "Asia/Yerevan",
+"name": "(GMT+04:00) 葉裡溫"
+}
+],
+[
+{
+"value": "Asia/Kabul",
+"name": "(GMT+04:30) 喀布爾"
+}
+],
+[
+{
+"value": "Asia/Karachi",
+"name": "(GMT+05:00) 卡拉奇"
+}
+],
+[
+{
+"value": "Asia/Tashkent",
+"name": "(GMT+05:00) 塔什幹"
+}
+],
+[
+{
+"value": "Asia/Kolkata",
+"name": "(GMT+05:30) 加爾各答"
+}
+],
+[
+{
+"value": "Asia/Kathmandu",
+"name": "(GMT+05:45) 加德滿都"
+}
+],
+[
+{
+"value": "Asia/Yekaterinburg",
+"name": "(GMT+06:00) 葉卡捷琳堡"
+}
+],
+[
+{
+"value": "Asia/Almaty",
+"name": "(GMT+06:00) 阿拉木圖"
+}
+],
+[
+{
+"value": "Asia/Dhaka",
+"name": "(GMT+06:00) 達卡"
+}
+],
+[
+{
+"value": "Asia/Novosibirsk",
+"name": "(GMT+07:00) 新西伯利亞"
+}
+],
+[
+{
+"value": "Asia/Bangkok",
+"name": "(GMT+07:00) 曼谷"
+}
+],
+[
+{
+"value": "Asia/Jakarta",
+"name": "(GMT+07:00) 雅加達"
+}
+],
+[
+{
+"value": "Asia/Krasnoyarsk",
+"name": "(GMT+08:00) 克拉斯諾亞爾斯克"
+}
+],
+[
+{
+"value": "Asia/Kuala_Lumpur",
+"name": "(GMT+08:00) 吉隆玻"
+}
+],
+[
+{
+"value": "Australia/Perth",
+"name": "(GMT+08:00) 伯斯"
+}
+],
+[
+{
+"value": "Asia/Singapore",
+"name": "(GMT+08:00) 新加坡"
+}
+],
+[
+{
+"value": "Asia/Ulaanbaatar",
+"name": "(GMT+08:00) 烏蘭巴托"
+}
+],
+[
+{
+"value": "Asia/Urumqi",
+"name": "(GMT+08:00) 烏魯木齊市"
+}
+],
+[
+{
+"value": "Asia/Irkutsk",
+"name": "(GMT+09:00) 伊爾庫茨克"
+}
+],
+[
+{
+"value": "Asia/Seoul",
+"name": "(GMT+09:00) 首爾"
+}
+],
+[
+{
+"value": "Asia/Tokyo",
+"name": "(GMT+09:00) 東京"
+}
+],
+[
+{
+"value": "Australia/Adelaide",
+"name": "(GMT+09:30) 阿德萊德"
+}
+],
+[
+{
+"value": "Australia/Darwin",
+"name": "(GMT+09:30) 澳洲達爾文"
+}
+],
+[
+{
+"value": "Asia/Yakutsk",
+"name": "(GMT+10:00) 雅庫茨克"
+}
+],
+[
+{
+"value": "Australia/Brisbane",
+"name": "(GMT+10:00) 布里斯班"
+}
+],
+[
+{
+"value": "Australia/Canberra",
+"name": "(GMT+10:00) 坎培拉"
+}
+],
+[
+{
+"value": "Pacific/Guam",
+"name": "(GMT+10:00) 關島"
+}
+],
+[
+{
+"value": "Australia/Hobart",
+"name": "(GMT+10:00) 霍巴特"
+}
+],
+[
+{
+"value": "Australia/Melbourne",
+"name": "(GMT+10:00) 墨爾本"
+}
+],
+[
+{
+"value": "Pacific/Port_Moresby",
+"name": "(GMT+10:00) 莫爾斯貝港"
+}
+],
+[
+{
+"value": "Australia/Sydney",
+"name": "(GMT+10:00) 悉尼"
+}
+],
+[
+{
+"value": "Asia/Vladivostok",
+"name": "(GMT+11:00) 海參崴"
+}
+],
+[
+{
+"value": "Asia/Magadan",
+"name": "(GMT+12:00) 馬加丹"
+}
+],
+[
+{
+"value": "Pacific/Auckland",
+"name": "(GMT+12:00) 奧克蘭"
+}
+],
+[
+{
+"value": "Pacific/Fiji",
+"name": "(GMT+12:00) 斐濟"
+}
+]
+]

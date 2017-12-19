@@ -228,7 +228,7 @@
     self.page++;
     [self.collectionView.mj_footer endRefreshing];
     [self addwork];
-    NSLog(@"%dkk",self.page);
+ 
     
     
 }
@@ -294,13 +294,16 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld", (long)indexPath.row);
+  
     
     ClassShopViewController * sho =[ClassShopViewController new];
     
     sho.title = @"课程资料";
     
     sho.model = self.mutableArrat[indexPath.row];
+    
+    sho.api_bookCourse = @"api_get_coursebook_detail.php";
+    
     [self.navigationController pushViewController:sho animated:YES];
     
     
@@ -309,7 +312,7 @@
     
     [super viewDidDisappear:animated];
     
-    NSLog(@"销毁");
+   
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
     [[SDImageCache sharedImageCache] clearMemory];
     

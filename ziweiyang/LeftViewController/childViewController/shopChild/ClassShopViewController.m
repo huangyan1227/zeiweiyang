@@ -8,6 +8,7 @@
 //教室书籍跳转详细页面
 #import "ClassShopViewController.h"
 #import "CoursecontentViewController.h"
+#import "LogViewController.h"
 
 @interface ClassShopViewController ()
 
@@ -47,11 +48,15 @@
     
    // imageView.image = [UIImage imageNamed:@"book"];
     
+  
     UILabel * namlable = [[UILabel alloc]init];
     
     namlable.frame = CGRectMake(10, CGRectGetMaxY(imageView.frame)+30, self.view.width-10, 40);
     
+    
+   
     namlable.text = [NSString stringWithFormat:@"课程名称: %@",self.model.namebook];
+    
     namlable.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:namlable];
@@ -66,26 +71,36 @@
     
     [scrollView addSubview:dateLable];
     
-    
+   
     UILabel *kecheng = [[UILabel alloc]init];
     
     kecheng.frame = CGRectMake(10, CGRectGetMaxY(dateLable.frame)+10, 80, 40);
     
-    kecheng.text = @"课程简介:";
     
+  
     kecheng.textColor = [UIColor whiteColor];
     
     [scrollView addSubview:kecheng];
     
     UILabel * neirong = [[UILabel alloc]init];
     
-    neirong.text = self.model.detailbook;
+   
     
+    
+    if (self.model.detailbook.length==0) {
+        
+    }else{
+        kecheng.text = @"课程简介:";
+        
+         neirong.text = self.model.detailbook;
+    }
     CGSize maximunLabsize = CGSizeMake(self.view.width-kecheng.width-10-30, MAXFLOAT);
     
     neirong.textColor = [UIColor whiteColor];
     
     neirong.numberOfLines = 0;
+    
+    neirong.font = [UIFont systemFontOfSize:14];
     
     neirong.adjustsFontSizeToFitWidth = YES;
     
@@ -103,11 +118,18 @@
     
     UIButton * button = [[UIButton alloc]init];
     
-    button.frame =CGRectMake(CGRectGetMaxX(kecheng.frame)-30, CGRectGetMaxY(neirong.frame)+10, self.view.width-100, 40);
+    button.frame =CGRectMake(CGRectGetMaxX(kecheng.frame)-30, CGRectGetMaxY(neirong.frame)+10, self.view.width-100, 30);
     
     [button addTarget:self action:@selector(clickback) forControlEvents:UIControlEventTouchUpInside];
     
-    [button setBackgroundImage:[UIImage imageNamed:@"readBtn_course"] forState:UIControlStateNormal];
+    if (AppLog_State) {
+        [button setBackgroundImage:[UIImage imageNamed:@"readBtn_course"] forState:UIControlStateNormal];
+    }else{
+        
+        
+           [button setBackgroundImage:[UIImage imageNamed:@"shop_loginBtn"] forState:UIControlStateNormal];
+    }
+   
     
     [scrollView addSubview:button];
     
@@ -115,10 +137,24 @@
 }
 -(void)clickback{
     
-
+    if (AppLog_State) {
+        CoursecontentViewController * coursr =[CoursecontentViewController new];
+        
+        coursr.bookmodel = self.model;
+        
+        coursr.api_bookcourse = self.api_bookCourse;
+        
+        
+        [self.navigationController pushViewController:coursr animated:YES];
+        
+    }else{
+        
+        
+        [self.navigationController pushViewController:[LogViewController new] animated:YES];
+        
+    }
     
-    [self.navigationController pushViewController:[CoursecontentViewController new] animated:YES];
-    
+   
 }
 
 - (void)didReceiveMemoryWarning {

@@ -196,7 +196,7 @@
     BBSModel * model = self.mutableArrat[indexPath.row];
     
     
-    NSString * string = @"https://www.ziweiyang.com/";
+    //NSString * string = @"https://www.ziweiyang.com/";
     
     
     
@@ -219,7 +219,7 @@
     
     cell.chakanlagString = [NSString stringWithFormat:@"查看%@ 回復：%@",  model.chakanlagString, model.replyString] ;
     
-    cell.nameimageString =[string stringByAppendingString:model.nameimageString];
+    cell.nameimageString =[AppNetWork_Post stringByAppendingString:model.nameimageString];
     
     cell.dateString =  [NSString stringWithFormat:@"最後發表：%@",model.dateString];
     

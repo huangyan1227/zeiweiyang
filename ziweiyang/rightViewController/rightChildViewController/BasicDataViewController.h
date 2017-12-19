@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BasicDataViewController : UIViewController
-
+@property(nonatomic,strong) NSArray * array;
 @end

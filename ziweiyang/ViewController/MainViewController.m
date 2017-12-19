@@ -210,7 +210,7 @@
     
     chilVc.navigationItem.leftBarButtonItem  = [UIBarButtonItem itemWithImageName:@"top_navigation_menuicon" target:self action:@selector(lefMen)];
     
-    chilVc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登入" style:UIBarButtonItemStylePlain target:self action:@selector(rightMen)];
+  //  chilVc.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登入" style:UIBarButtonItemStylePlain target:self action:@selector(rightMen)];
     
 //    UIButton * rightbutton = [[UIButton alloc]init];
 //
@@ -224,7 +224,7 @@
     
     
     MainNavigationViewController * navation = [[MainNavigationViewController alloc]initWithRootViewController:chilVc];
-    //navation.maind = self;
+    navation.maind = self;
     [self addChildViewController:navation];
     
 }
@@ -241,15 +241,16 @@
 //    
     
 }
+
 -(void)rightMen{
 
     self.righVc.view.hidden = NO;
-    
+
     self.lefView.hidden = YES;
-    
-    
+
+    NSLog(@"右边");
     [UIView animateWithDuration:HYNavShowAnimDuration animations:^{
-        
+
         UIView *view=self.shownavigationCotroller.view;
         CGFloat navi=[UIScreen mainScreen].bounds.size.height- 2*60;
         CGFloat scale = navi/ [UIScreen mainScreen].bounds.size.height;
@@ -269,15 +270,18 @@
         cover.frame=view.bounds;
         cover.tag=HYCoverTag;
         [view addSubview:cover];
-        
-        
+
+
     } completion:^(BOOL finished) {
        // [self.rightVc didShow];
     }];
    // UINavigationController*a =[[UINavigationController alloc]initWithRootViewController:[LogViewController new]];
-    
-    //[self.navigationController pushViewController:[LogViewController new] animated:YES];
+   // [self.navigationController pushViewController:[LogViewController new] animated:YES];
+   // [self pushViewController:[LogViewController new] animated:YES];
    /// [self presv]
+    
+   // [self presentViewController:a
+           //            animated:YES completion:nil];
    // NSLog(@"fffssaa");
 }
 -(void)lefMen{

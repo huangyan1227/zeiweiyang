@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"rules" ofType:@"html"];
+    NSString * pathHtml = [[NSBundle mainBundle] pathForResource:@"rules" ofType:@"html"];
     
     
     WKWebViewConfiguration * configuration = [[WKWebViewConfiguration alloc]init];
@@ -30,7 +30,7 @@
   //  NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     
-    NSString * htmlSrting = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString * htmlSrting = [NSString stringWithContentsOfFile:pathHtml encoding:NSUTF8StringEncoding error:nil];
     
     
     NSString *basePath = [[NSBundle mainBundle] bundlePath];

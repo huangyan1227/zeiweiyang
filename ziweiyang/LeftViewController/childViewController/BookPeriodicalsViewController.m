@@ -16,6 +16,8 @@
 
 @property(nonatomic,strong) NSArray * titlel;
 @property(nonatomic,) int page;
+@property(nonatomic) BOOL  isfriltLog;
+@property(nonatomic) BOOL  isNOLog;
 @end
 
 @implementation BookPeriodicalsViewController
@@ -33,20 +35,53 @@
     
     self.page = 1;
     
+    self.isfriltLog = YES;
+    
     [self mjrefresh];
-    [self addwork];
+   
 //    NSString * path = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"plist"];
 //    
 //     self.imgaArray = [NSArray arrayWithContentsOfFile:path];
 //    self.titlel = @[@"『紫微径』",@"『紫微闲话』",@"『术数述异』",@"『紫微新语』",@"『清室气数录』",@"『天网搜奇录』",@"『蕉窗传灯录』",@"『玄空纪异录』",@"『燃犀日知录』"];
     // Do any additional setup after loading the view.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    
+    NSLog(@"登录之后");
+    [super viewWillAppear:animated];
+    
+    if (AppLog_State) {
+        
+        if (self.isfriltLog) {
+            
+            [self.mutableArrat removeAllObjects];
+            
+            self.page=1;
+            self.isfriltLog = NO;
+             self.isNOLog = YES;
+             [self addwork];
+            NSLog(@"登录之后1");
+        }
+    }else{
+        
+        if (self.isNOLog) {
+            [self.mutableArrat removeAllObjects];
+            
+            self.page=1;
+            self.isNOLog = NO;
+            
+            NSLog(@"登录之后2");
+             [self addwork];
+        }
+    }
+    
+}
 -(void)addwork{
     
     //
     //NSString *string = @"https://www.ziweiyang.com/api_get_news.php?recordper page=8&page=1&sortby=&token=&s=&main_flag=1&lang=3";
-    NSString * string = [NSString stringWithFormat:@"%@api_get_ebook.php?recordperpage=4&page=%d&sortby=data&username=&token=&active=",AppNetWork_Post,self.page];
+    NSString * string = [NSString stringWithFormat:@"%@api_get_ebook.php?recordperpage=4&page=%d&sortby=data&username=%@&token=%@&active=",AppNetWork_Post,self.page,AppUserName_USER,AppToken_USER_COOKIE
+                         ];
     
     __weak typeof (self) mySelf = self;
     
@@ -171,7 +206,7 @@
     self.page++;
      [self.collectionView.mj_footer endRefreshing];
     [self addwork];
-    NSLog(@"%dkk",self.page);
+  //  NSLog(@"%dkk",self.page);
    
     
 }
@@ -237,13 +272,22 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld", (long)indexPath.row);
+ //   NSLog(@"%@", AppToken_USER_COOKIE);
+    
+ //   NSLog(@"%d", AppLog_State);
+    
+   // if (AppLog_State) {
+        
+      //  NSLog(@"登录成功");
+   // }
     
     ClassShopViewController * sho =[ClassShopViewController new];
     
     sho.title = @"书刊资料";
     sho.model = self.mutableArrat[indexPath.row];
-    [self.navigationController pushViewController:sho animated:YES];
+    
+    sho.api_bookCourse = @"api_get_ebook_detail.php";
+    //[self.navigationController pushViewController:sho animated:YES];
     
     
 }

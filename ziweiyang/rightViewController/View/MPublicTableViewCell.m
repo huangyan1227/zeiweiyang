@@ -148,15 +148,74 @@
     [self titlelable:_nameLabel5 titletitle:rightmodel.namelabel5];
     
     
-     _nameLabeltext1.text = rightmodel.namelabeltext1;
-     _nameLabeltext2.text = rightmodel.namelabeltext2;
-     _nameLabeltext3.text = rightmodel.namelabeltext3;
-     _nameLabeltext4.text = rightmodel.namelabeltext4;
+    
+    
+    
+    
+    
     
     if (rightmodel.isColor) {
+        
+        //需要转换的字符串
+        NSString *dateString = rightmodel.entitycreate_date;
+        // 设置转换格式
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        //NSString转NSDate
+        NSDate *date=[formatter dateFromString:dateString];
+        
+        //装换
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        
+        // 设置日期格式 为了转换成功
+        format.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+        // [dateFormatter setDateFormat:@"h:mm:ss a"];
+        format.dateFormat = @"MM月dd日yyyy年hh:mm a";
+        
+        NSString *newString = [format stringFromDate:date];
+        
+        
+        
+        _nameLabeltext1.text = newString;
+        _nameLabeltext2.text = rightmodel.entityproduct_code;
+        _nameLabeltext3.text = rightmodel.entityproduct_name;
+        _nameLabeltext4.text = rightmodel.entityqty;
+        _nameLabeltext5.text = rightmodel.entitycoin;
+        
           _nameLabeltext4.textColor = [UIColor lightGrayColor];
     }else{
-          _nameLabeltext4.textColor = [UIColor redColor];
+        
+        
+        //需要转换的字符串
+        NSString *dateString = rightmodel.namelabeltext3;
+        // 设置转换格式
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        //NSString转NSDate
+        NSDate *date=[formatter dateFromString:dateString];
+        
+        //装换
+        
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        
+        // 设置日期格式 为了转换成功
+        format.locale=[[NSLocale alloc]initWithLocaleIdentifier:@"en_US"];
+        // [dateFormatter setDateFormat:@"h:mm:ss a"];
+        format.dateFormat = @"MM月dd日yyyy年hh:mm a";
+        
+        NSString *newString = [format stringFromDate:date];
+        
+        
+        
+        
+        
+        
+        _nameLabeltext1.text = rightmodel.namelabeltext1;
+        _nameLabeltext2.text = rightmodel.namelabeltext2;
+        _nameLabeltext3.text = newString;
+        _nameLabeltext4.text = rightmodel.namelabeltext4;
+        _nameLabeltext4.textColor = [UIColor redColor];
     }
   
     _nameLabeltext1.textColor = [UIColor lightGrayColor];
@@ -167,6 +226,7 @@
      _nameLabeltext5.text = rightmodel.namelabeltext5;
     
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LogViewController : UIViewController
-
+@property(nonatomic,strong) UIButton * button;
 @end

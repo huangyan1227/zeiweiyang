@@ -177,7 +177,7 @@
     CGFloat  w = self.view.frame.size.width/2-self.view.frame.size.width/4;
     
     [imageView sd_setImageWithURL:[NSURL URLWithString:image]];
-    imageView.image = [UIImage imageNamed:image];
+   // imageView.image = [UIImage imageNamed:image];
     
     CGFloat  h =  self.view.frame.size.width*3/8-40;
     

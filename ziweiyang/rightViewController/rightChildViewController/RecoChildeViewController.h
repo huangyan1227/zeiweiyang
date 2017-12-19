@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RightModel.h"
 @interface RecoChildeViewController : UIViewController
-
+@property(nonatomic,strong) RightModel * rightmodel;
 @end

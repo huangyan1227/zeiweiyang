@@ -12,9 +12,22 @@
 #import "ThecClassroomChildViewController.h"
 @interface TheclassroomrecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView * tableView;
+@property(nonatomic,assign) int page;
+@property(nonatomic,strong) NSMutableArray * classroomArray;
+@property(nonatomic) BOOL isFirst;
 @end
 
 @implementation TheclassroomrecordViewController
+
+-(NSMutableArray *)classroomArray {
+    if (!_classroomArray) {
+        
+        _classroomArray = [NSMutableArray array];
+    }
+    
+    return _classroomArray;
+    
+}
 -(UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
@@ -30,10 +43,85 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.page = 1;
+    self.isFirst = YES;
     [self addTableView];
-    
+    [self addaddMJrefresh];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    if (self.isFirst) {
+      
+        self.isFirst = NO;
+        [self addNework];
+    }
+    
+    
+}
+-(void)addNework{
+    
+    NSString * string = [NSString stringWithFormat:@"%@api_get_history_course.php?recordperpage=8&page=%d&username=%@&token=%@&active=&lang=3",AppNetWork_Post,self.page,AppUserName_USER,AppToken_USER_COOKIE];
+    
+    DefinmySelf;
+    
+    
+    
+    [NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
+        
+        NSArray * array = [RightModel classroomModel: responsObj];
+    
+        
+        [mySelf.classroomArray addObjectsFromArray:array];
+        
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [mySelf.tableView reloadData];
+            
+        });
+        
+    }];
+    
+    
+    
+    
+}
+-(void)addaddMJrefresh{
+    
+    DefinmySelf;
+    MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:mySelf refreshingAction:@selector(handeloadMore)];
+    
+    
+    self.tableView.mj_footer = footer;
+    
+    
+    [footer setTitle:@"正在详细加载" forState:MJRefreshStateIdle];
+    
+    [footer setTitle:@"正在加载" forState:MJRefreshStatePulling];
+    
+    [footer setTitle:@"加载中" forState:MJRefreshStateRefreshing];
+    
+    
+    
+    
+    
+}
+-(void)handeloadMore{
+    
+    self.page++;
+    [self.tableView.mj_footer endRefreshing];
+    
+    RightModel * right =self.classroomArray[0];
+    
+    if (self.page>[right.total_page intValue]) {
+        
+        return;
+    }
+    [self addNework];
+    
 }
 -(void)addTableView{
     
@@ -47,7 +135,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return 10;
+    return self.classroomArray.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -59,23 +147,12 @@
     }
     
     cell.backgroundColor = [UIColor clearColor];
-    RightModel * model = [RightModel new];
     
-    model.namelabel1 = @"課程名稱:";
-    model.namelabel2 = @"課程章節:";
-    model.namelabel3 = @"購買日期:";
-    model.namelabel4 = @"已付點數:";
-    model.namelabel5 = @"課程種類:";
+    RightModel * model = self.classroomArray[indexPath.row];
     
-    model.namelabeltext1  = @"紫微斗數 第25輯";
     
-     //model.namelabeltext2  = @"";
     
-    model.namelabeltext3  = @"10月25日2017年02:27pm";
-    
-     model.namelabeltext4  = @"3.00";
-    
-     model.namelabeltext5 = @"課程書籍";
+   
   
     cell.rightmodel = model;
     
@@ -88,7 +165,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [self.navigationController pushViewController:[ThecClassroomChildViewController new] animated:YES];
+    ThecClassroomChildViewController *child =   [ThecClassroomChildViewController new];
+    
+    child.classroomModel = self.classroomArray[indexPath.row];
+    
+    [self.navigationController pushViewController:child animated:YES];
     
 }
 - (void)didReceiveMemoryWarning {

@@ -25,10 +25,7 @@
 
 @property(nonatomic,assign) NSInteger index;
 #define fontColor(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define kNaHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?20:0)
-#define DefinmySelf __weak typeof(self) mySelf = self
 
-#define path [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 @end
 
 @implementation HotChildViewController
@@ -72,9 +69,10 @@
     
     
   //  NSString * string = [NSString stringWithFormat:@"https://www.ziweiyang.com/api_get_forum.php?id=%@ &token=&active=",self.page];
-    
-    NSString *string =[NSString stringWithFormat:@"%@api_get_forum_reply.php?recordperpage=8&page=%d&sortby=&username=&token=&s=&lang=3&forum_id=%@",AppNetWork_Post,self.page,self.formid];
+    //api_get_forum_reply.php
+    NSString *string =[NSString stringWithFormat:@"%@api_get_forum_reply.php?recordperpage=8&page=%d&sortby=%@&username=%@&token=%@&s=&lang=3&forum_id=%@",AppNetWork_Post,self.page,self.sortby,AppUserName_USER,AppToken_USER_COOKIE,self.formid];
     //NSLog(@"%@",self.page);
+    NSLog(@" %@",string);
   //  __weak typeof(self) mySelf = self;
     DefinmySelf;
     [ NeworkViewModel POST:string parameters:nil completionHandler:^(id responsObj, NSError *or) {
@@ -114,7 +112,7 @@
     MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:mySelf refreshingAction:@selector(handeloadMore)];
     
     
-   // self.tableView.mj_footer = footer;
+    self.tableView.mj_footer = footer;
     
     
     [footer setTitle:@"正在详细加载" forState:MJRefreshStateIdle];

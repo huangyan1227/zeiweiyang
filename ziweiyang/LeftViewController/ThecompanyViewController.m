@@ -22,9 +22,9 @@
    // self.webView.delegate = self;
     
     self.wkwebView  =  [[WKWebView alloc]initWithFrame:self.view.frame configuration:[WKWebViewConfiguration new]];
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"company" ofType:@"html"];
+    NSString * pathHtml = [[NSBundle mainBundle] pathForResource:@"company" ofType:@"html"];
     
-    NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString *htmlString = [NSString stringWithContentsOfFile:pathHtml encoding:NSUTF8StringEncoding error:nil];
     
     NSString *basePath = [[NSBundle mainBundle] bundlePath];
     
@@ -45,7 +45,7 @@
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    NSLog(@"王超");
+   // NSLog(@"王超");
 }
 -(void)webViewDidStartLoad:(UIWebView *)webView{
     

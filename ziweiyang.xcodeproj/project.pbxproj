@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		140E51251FCCF98A00711F82 /* ThecClassroomChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */; };
 		140E51281FCD031600711F82 /* RecoChildeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51271FCD031600711F82 /* RecoChildeViewController.m */; };
+		140E512B1FCD44F300711F82 /* CoursecontTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E512A1FCD44F300711F82 /* CoursecontTableViewCell.m */; };
+		140E512E1FCD471600711F82 /* CoursecontModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E512D1FCD471600711F82 /* CoursecontModel.m */; };
+		140E51311FCE816200711F82 /* CourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51301FCE816200711F82 /* CourseDetailViewController.m */; };
+		140E51341FCFB50B00711F82 /* TopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51331FCFB50B00711F82 /* TopicViewController.m */; };
+		140E51371FCFB52700711F82 /* BBreplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51361FCFB52700711F82 /* BBreplyViewController.m */; };
+		140E513A1FCFDD0D00711F82 /* BBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51391FCFDD0D00711F82 /* BBTableViewCell.m */; };
+		140E51401FCFE9F800711F82 /* ProblemsreplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E513F1FCFE9F800711F82 /* ProblemsreplyViewController.m */; };
+		140E51431FCFEAA600711F82 /* ThedayproblemrightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51421FCFEAA600711F82 /* ThedayproblemrightViewController.m */; };
+		140E51451FCFEB3300711F82 /* QuestionsrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140E51441FCFEB3200711F82 /* QuestionsrecordViewController.m */; };
+		14194CA31FD7A403008FFECA /* EntiytTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14194CA21FD7A403008FFECA /* EntiytTableViewCell.m */; };
+		14194CA51FD7EE4D008FFECA /* boridatezoon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14194CA41FD7EE4D008FFECA /* boridatezoon.plist */; };
+		14194CA81FD91FAC008FFECA /* Reg.m in Sources */ = {isa = PBXBuildFile; fileRef = 14194CA71FD91FAC008FFECA /* Reg.m */; };
+		14194CAC1FD92BFE008FFECA /* jeson in Resources */ = {isa = PBXBuildFile; fileRef = 14194CAB1FD92BFE008FFECA /* jeson */; };
+		14194CB01FD93D6C008FFECA /* date in Resources */ = {isa = PBXBuildFile; fileRef = 14194CAF1FD93D6C008FFECA /* date */; };
 		144AE8461FB9381A004C884C /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8431FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.m */; };
 		144AE8471FB9381C004C884C /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8451FB93800004C884C /* UIView+SDAutoLayout.m */; };
 		144AE84A1FB93859004C884C /* HotChiledTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8491FB93859004C884C /* HotChiledTableViewCell.m */; };
@@ -27,7 +41,6 @@
 		144AE8B81FBBE32E004C884C /* TheclassroomrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8B71FBBE32E004C884C /* TheclassroomrecordViewController.m */; };
 		144AE8BB1FBBE35D004C884C /* TheentityrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8BA1FBBE35D004C884C /* TheentityrecordViewController.m */; };
 		144AE8BE1FBBE381004C884C /* BBSrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8BD1FBBE381004C884C /* BBSrecordViewController.m */; };
-		144AE8C11FBBE39E004C884C /* QuestionsrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8C01FBBE39E004C884C /* QuestionsrecordViewController.m */; };
 		144AE8C41FBC2237004C884C /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE8C31FBC2237004C884C /* BookModel.m */; };
 		144AE9401FBD6D8F004C884C /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE9291FBD6D7F004C884C /* BRAddressModel.m */; };
 		144AE9411FBD6D92004C884C /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 144AE92B1FBD6D7F004C884C /* BRAddressPickerView.m */; };
@@ -235,6 +248,30 @@
 		140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThecClassroomChildViewController.m; sourceTree = "<group>"; };
 		140E51261FCD031600711F82 /* RecoChildeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecoChildeViewController.h; sourceTree = "<group>"; };
 		140E51271FCD031600711F82 /* RecoChildeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecoChildeViewController.m; sourceTree = "<group>"; };
+		140E51291FCD44F300711F82 /* CoursecontTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoursecontTableViewCell.h; sourceTree = "<group>"; };
+		140E512A1FCD44F300711F82 /* CoursecontTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoursecontTableViewCell.m; sourceTree = "<group>"; };
+		140E512C1FCD471600711F82 /* CoursecontModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoursecontModel.h; sourceTree = "<group>"; };
+		140E512D1FCD471600711F82 /* CoursecontModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoursecontModel.m; sourceTree = "<group>"; };
+		140E512F1FCE816200711F82 /* CourseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseDetailViewController.h; sourceTree = "<group>"; };
+		140E51301FCE816200711F82 /* CourseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseDetailViewController.m; sourceTree = "<group>"; };
+		140E51321FCFB50B00711F82 /* TopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopicViewController.h; sourceTree = "<group>"; };
+		140E51331FCFB50B00711F82 /* TopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopicViewController.m; sourceTree = "<group>"; };
+		140E51351FCFB52700711F82 /* BBreplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBreplyViewController.h; sourceTree = "<group>"; };
+		140E51361FCFB52700711F82 /* BBreplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBreplyViewController.m; sourceTree = "<group>"; };
+		140E51381FCFDD0D00711F82 /* BBTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBTableViewCell.h; sourceTree = "<group>"; };
+		140E51391FCFDD0D00711F82 /* BBTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBTableViewCell.m; sourceTree = "<group>"; };
+		140E513E1FCFE9F800711F82 /* ProblemsreplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProblemsreplyViewController.h; sourceTree = "<group>"; };
+		140E513F1FCFE9F800711F82 /* ProblemsreplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProblemsreplyViewController.m; sourceTree = "<group>"; };
+		140E51411FCFEAA600711F82 /* ThedayproblemrightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThedayproblemrightViewController.h; sourceTree = "<group>"; };
+		140E51421FCFEAA600711F82 /* ThedayproblemrightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThedayproblemrightViewController.m; sourceTree = "<group>"; };
+		140E51441FCFEB3200711F82 /* QuestionsrecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsrecordViewController.m; sourceTree = "<group>"; };
+		14194CA11FD7A403008FFECA /* EntiytTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntiytTableViewCell.h; sourceTree = "<group>"; };
+		14194CA21FD7A403008FFECA /* EntiytTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntiytTableViewCell.m; sourceTree = "<group>"; };
+		14194CA41FD7EE4D008FFECA /* boridatezoon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = boridatezoon.plist; sourceTree = "<group>"; };
+		14194CA61FD91FAC008FFECA /* Reg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reg.h; sourceTree = "<group>"; };
+		14194CA71FD91FAC008FFECA /* Reg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reg.m; sourceTree = "<group>"; };
+		14194CAB1FD92BFE008FFECA /* jeson */ = {isa = PBXFileReference; lastKnownFileType = text; path = jeson; sourceTree = "<group>"; };
+		14194CAF1FD93D6C008FFECA /* date */ = {isa = PBXFileReference; lastKnownFileType = text; path = date; sourceTree = "<group>"; };
 		144AE8411FB93800004C884C /* SDAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		144AE8421FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
 		144AE8431FB93800004C884C /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
@@ -273,7 +310,6 @@
 		144AE8BC1FBBE381004C884C /* BBSrecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSrecordViewController.h; sourceTree = "<group>"; };
 		144AE8BD1FBBE381004C884C /* BBSrecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBSrecordViewController.m; sourceTree = "<group>"; };
 		144AE8BF1FBBE39E004C884C /* QuestionsrecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionsrecordViewController.h; sourceTree = "<group>"; };
-		144AE8C01FBBE39E004C884C /* QuestionsrecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuestionsrecordViewController.m; sourceTree = "<group>"; };
 		144AE8C21FBC2237004C884C /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
 		144AE8C31FBC2237004C884C /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
 		144AE9281FBD6D7F004C884C /* BRAddressModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
@@ -717,7 +753,7 @@
 				144AE8BC1FBBE381004C884C /* BBSrecordViewController.h */,
 				144AE8BD1FBBE381004C884C /* BBSrecordViewController.m */,
 				144AE8BF1FBBE39E004C884C /* QuestionsrecordViewController.h */,
-				144AE8C01FBBE39E004C884C /* QuestionsrecordViewController.m */,
+				140E51441FCFEB3200711F82 /* QuestionsrecordViewController.m */,
 			);
 			path = rightViewController;
 			sourceTree = "<group>";
@@ -805,6 +841,14 @@
 				140E51241FCCF98A00711F82 /* ThecClassroomChildViewController.m */,
 				140E51261FCD031600711F82 /* RecoChildeViewController.h */,
 				140E51271FCD031600711F82 /* RecoChildeViewController.m */,
+				140E51321FCFB50B00711F82 /* TopicViewController.h */,
+				140E51331FCFB50B00711F82 /* TopicViewController.m */,
+				140E51351FCFB52700711F82 /* BBreplyViewController.h */,
+				140E51361FCFB52700711F82 /* BBreplyViewController.m */,
+				140E51411FCFEAA600711F82 /* ThedayproblemrightViewController.h */,
+				140E51421FCFEAA600711F82 /* ThedayproblemrightViewController.m */,
+				140E513E1FCFE9F800711F82 /* ProblemsreplyViewController.h */,
+				140E513F1FCFE9F800711F82 /* ProblemsreplyViewController.m */,
 			);
 			path = rightChildViewController;
 			sourceTree = "<group>";
@@ -816,8 +860,12 @@
 				14BCD0CD1FC267BE0033F818 /* TransactionTableViewCell.m */,
 				14BCD0D21FC27BB10033F818 /* MPublicTableViewCell.h */,
 				14BCD0D31FC27BB10033F818 /* MPublicTableViewCell.m */,
+				14194CA11FD7A403008FFECA /* EntiytTableViewCell.h */,
+				14194CA21FD7A403008FFECA /* EntiytTableViewCell.m */,
 				145A97C51FCBE450006862B4 /* BasicTableViewCell.h */,
 				145A97C61FCBE450006862B4 /* BasicTableViewCell.m */,
+				140E51381FCFDD0D00711F82 /* BBTableViewCell.h */,
+				140E51391FCFDD0D00711F82 /* BBTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -935,6 +983,7 @@
 				145A97C81FCBE6BD006862B4 /* basci.plist */,
 				145A97CA1FCBED2B006862B4 /* bascione.plist */,
 				145A97CC1FCBEEE1006862B4 /* bascitwo.plist */,
+				14194CA41FD7EE4D008FFECA /* boridatezoon.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1004,6 +1053,8 @@
 				149CD2CD1FA715A400C5C457 /* ShopphysicaCollectionViewCell.m */,
 				14BCD1E01FC7C9000033F818 /* AppNetwork.h */,
 				14BCD1E11FC7C9000033F818 /* AppNetwork.m */,
+				14194CAB1FD92BFE008FFECA /* jeson */,
+				14194CAF1FD93D6C008FFECA /* date */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1121,6 +1172,8 @@
 				149CD2D41FA71FC800C5C457 /* ClassShopViewController.m */,
 				149CD2D61FA8179900C5C457 /* CoursecontentViewController.h */,
 				149CD2D71FA8179900C5C457 /* CoursecontentViewController.m */,
+				140E512F1FCE816200711F82 /* CourseDetailViewController.h */,
+				140E51301FCE816200711F82 /* CourseDetailViewController.m */,
 				14BCD1341FC51CEE0033F818 /* PhysicachildernViewController.h */,
 				14BCD1351FC51CEE0033F818 /* PhysicachildernViewController.m */,
 			);
@@ -1187,6 +1240,8 @@
 			children = (
 				14BCD1391FC54A6B0033F818 /* PhysCollectionViewCell.h */,
 				14BCD13A1FC54A6B0033F818 /* PhysCollectionViewCell.m */,
+				140E51291FCD44F300711F82 /* CoursecontTableViewCell.h */,
+				140E512A1FCD44F300711F82 /* CoursecontTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1196,6 +1251,8 @@
 			children = (
 				14BCD13C1FC550920033F818 /* PhyModel.h */,
 				14BCD13D1FC550920033F818 /* PhyModel.m */,
+				140E512C1FCD471600711F82 /* CoursecontModel.h */,
+				140E512D1FCD471600711F82 /* CoursecontModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1414,6 +1471,8 @@
 				144AE8C31FBC2237004C884C /* BookModel.m */,
 				144AE8621FBA9314004C884C /* WKWebViewMode.h */,
 				144AE8631FBA9314004C884C /* WKWebViewMode.m */,
+				14194CA61FD91FAC008FFECA /* Reg.h */,
+				14194CA71FD91FAC008FFECA /* Reg.m */,
 			);
 			name = Model;
 			path = ziweiyang/Model;
@@ -1623,6 +1682,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14194CB01FD93D6C008FFECA /* date in Resources */,
+				14194CAC1FD92BFE008FFECA /* jeson in Resources */,
 				145A97C91FCBE6BD006862B4 /* basci.plist in Resources */,
 				145A97CD1FCBEEE1006862B4 /* bascitwo.plist in Resources */,
 				1485C4DA1F9DECB000BAEF70 /* company.html in Resources */,
@@ -1651,6 +1712,7 @@
 				1485C4FA1F9EF2C100BAEF70 /* photo4.png in Resources */,
 				1485C4E01F9DEDD800BAEF70 /* book2.png in Resources */,
 				1485C4FB1F9EF2C500BAEF70 /* photo5.png in Resources */,
+				14194CA51FD7EE4D008FFECA /* boridatezoon.plist in Resources */,
 				1485C4DF1F9DEDCE00BAEF70 /* qimen.html in Resources */,
 				145A97CB1FCBED2B006862B4 /* bascione.plist in Resources */,
 				1485C4E41F9DEDE800BAEF70 /* qimen1.png in Resources */,
@@ -1698,6 +1760,8 @@
 				14F055A11F987B5C00C02B12 /* LogViewController.m in Sources */,
 				148497B01FB03BA500812B51 /* MJRefreshGifHeader.m in Sources */,
 				14BCD1D81FC7C2630033F818 /* IQUIViewController+Additions.m in Sources */,
+				14194CA81FD91FAC008FFECA /* Reg.m in Sources */,
+				140E512B1FCD44F300711F82 /* CoursecontTableViewCell.m in Sources */,
 				1485C5B41FA2C86700BAEF70 /* UIImage+MultiFormat.m in Sources */,
 				1485C5441F9F374700BAEF70 /* TitleSlider.m in Sources */,
 				1485C5A61FA2C83900BAEF70 /* SDImageCacheConfig.m in Sources */,
@@ -1726,6 +1790,7 @@
 				1485C54D1FA073D500BAEF70 /* ClassshopTableViewCell.m in Sources */,
 				1485C5C71FA3048100BAEF70 /* BookPeriodicalsViewController.m in Sources */,
 				14F054561F96ED6D00C02B12 /* MainNavigationViewController.m in Sources */,
+				140E51371FCFB52700711F82 /* BBreplyViewController.m in Sources */,
 				14F054491F95D4C800C02B12 /* ContactViewController.m in Sources */,
 				14F054311F95D36400C02B12 /* ThecompanyViewController.m in Sources */,
 				1485C5A11FA2C82500BAEF70 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1746,10 +1811,12 @@
 				14BCD1D41FC7C2580033F818 /* IQNSArray+Sort.m in Sources */,
 				1485C5AE1FA2C85500BAEF70 /* SDWebImageManager.m in Sources */,
 				148497A61FB03B7E00812B51 /* NSBundle+MJRefresh.m in Sources */,
+				140E51451FCFEB3300711F82 /* QuestionsrecordViewController.m in Sources */,
 				1485C5CA1FA304AB00BAEF70 /* AphysicalstoreViewController.m in Sources */,
 				14BCD13B1FC54A6B0033F818 /* PhysCollectionViewCell.m in Sources */,
 				144AE9471FBD6DC3004C884C /* BRDatePickerView.m in Sources */,
 				1485C5681FA1D78C00BAEF70 /* AFSecurityPolicy.m in Sources */,
+				140E51341FCFB50B00711F82 /* TopicViewController.m in Sources */,
 				14BCD0D41FC27BB10033F818 /* MPublicTableViewCell.m in Sources */,
 				148497AE1FB03B9E00812B51 /* MJRefreshBackNormalFooter.m in Sources */,
 				14F054251F95D2A800C02B12 /* ThehomePageViewController.m in Sources */,
@@ -1770,6 +1837,7 @@
 				14F054001F959ED300C02B12 /* MainViewController.m in Sources */,
 				14BCD1301FC50D660033F818 /* YBRectConst.m in Sources */,
 				14DF11981FAC462F0053A682 /* HYTextView.m in Sources */,
+				14194CA31FD7A403008FFECA /* EntiytTableViewCell.m in Sources */,
 				14F054371F95D3FA00C02B12 /* CrapemyrtleViewController.m in Sources */,
 				1485C5A91FA2C84200BAEF70 /* SDWebImageCompat.m in Sources */,
 				14BCD1D51FC7C25B0033F818 /* IQUIScrollView+Additions.m in Sources */,
@@ -1793,6 +1861,7 @@
 				14DF11911FAC0C290053A682 /* QuestioneplyViewController.m in Sources */,
 				1485C5531FA1BD9300BAEF70 /* MultimediaclassroomViewController.m in Sources */,
 				14BCD1D91FC7C2660033F818 /* IQUIWindow+Hierarchy.m in Sources */,
+				140E513A1FCFDD0D00711F82 /* BBTableViewCell.m in Sources */,
 				14F0543D1F95D44300C02B12 /* TheclassroomViewController.m in Sources */,
 				1485C5A71FA2C83C00BAEF70 /* SDWebImageCoder.m in Sources */,
 				14BCD11C1FC2D4420033F818 /* QuestionchildViewController.m in Sources */,
@@ -1822,13 +1891,14 @@
 				148497A51FB03B7B00812B51 /* MJRefreshConst.m in Sources */,
 				1485C5A81FA2C83F00BAEF70 /* SDWebImageCodersManager.m in Sources */,
 				1485C56B1FA1D79400BAEF70 /* AFURLSessionManager.m in Sources */,
+				140E51431FCFEAA600711F82 /* ThedayproblemrightViewController.m in Sources */,
 				1485C46E1F9D967D00BAEF70 /* DailyfinancesViewController.m in Sources */,
 				14F055A61F98AED500C02B12 /* RegisteredViewController.m in Sources */,
 				1485C5B51FA2C86A00BAEF70 /* UIImage+WebP.m in Sources */,
+				140E51311FCE816200711F82 /* CourseDetailViewController.m in Sources */,
 				14BCD0D11FC269800033F818 /* RightModel.m in Sources */,
 				144AE84A1FB93859004C884C /* HotChiledTableViewCell.m in Sources */,
 				14F0544F1F95D50900C02B12 /* PrivacypolicyViewController.m in Sources */,
-				144AE8C11FBBE39E004C884C /* QuestionsrecordViewController.m in Sources */,
 				144AE9441FBD6DB3004C884C /* NSObject+YYModel.m in Sources */,
 				1485C5AF1FA2C85A00BAEF70 /* SDWebImagePrefetcher.m in Sources */,
 				144AE9411FBD6D92004C884C /* BRAddressPickerView.m in Sources */,
@@ -1843,7 +1913,9 @@
 				14BCD1DF1FC7C27E0033F818 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				14F0543A1F95D42000C02B12 /* CalendarViewController.m in Sources */,
 				148497B51FB03BBA00812B51 /* MJRefreshComponent.m in Sources */,
+				140E512E1FCD471600711F82 /* CoursecontModel.m in Sources */,
 				14F0544C1F95D4EA00C02B12 /* ThetermsViewController.m in Sources */,
+				140E51401FCFE9F800711F82 /* ProblemsreplyViewController.m in Sources */,
 				144AE8611FBA8C0A004C884C /* NeworkViewModel.m in Sources */,
 				14F055A91F998C4200C02B12 /* RetrievethepasswordViewController.m in Sources */,
 				149CD2CB1FA6C1F600C5C457 /* AnnotationsViewController.m in Sources */,

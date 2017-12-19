@@ -19,9 +19,9 @@
     
     self.wkWebView  =  [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64) configuration:[WKWebViewConfiguration new]];
     
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"ziweiyang" ofType:@"html"];
+    NSString * pathHtml = [[NSBundle mainBundle] pathForResource:@"ziweiyang" ofType:@"html"];
     
-    NSString *htmlString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString *htmlString = [NSString stringWithContentsOfFile:pathHtml  encoding:NSUTF8StringEncoding error:nil];
     
     NSString *basePath = [[NSBundle mainBundle] bundlePath];
     

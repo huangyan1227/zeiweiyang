@@ -16,7 +16,10 @@
 @property(nonatomic,copy) NSString * picName;
 @property(nonatomic,copy) NSString * cantame;
 @property(nonatomic,copy) NSString * detail;
-
+//公共
+@property(nonatomic,copy) NSString * total_page;
+@property(nonatomic,copy) NSString * prev_page;
+@property(nonatomic,copy) NSString * next_page;
 //@property(nonatomic,copy) NSString * picName;
 
 //hot
@@ -58,11 +61,17 @@
 @property(nonatomic,copy) NSString *forumchakanlagString;
 @property(nonatomic,copy) NSString *forumreplyString;
 @property(nonatomic,copy) NSString *forumdateString;
-@property(nonatomic,copy) NSString * forumconid;
+
+@property(nonatomic,copy) NSString *forumcon_id;
 
 
 +(NSArray*)addBBSomeModel:(NSArray*)array;
 +(NSArray*)addBBChildSomeModel:(NSArray*)array imageString:(NSString*)imagestring tieimage:(NSString*)titamge model:(BBSModel*)oldmod;
+
+//论坛纪录 我的问题
++(NSArray*)recordaddBBSomeModel:(NSArray*)array;
+//我的回复
++(NSArray*)recordaddBBReplySomeModel:(NSArray*)array;
 //建基
 //cell.isConten = YES;
 //cell.titleString = @"会员优惠";
